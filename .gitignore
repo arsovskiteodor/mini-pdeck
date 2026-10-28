@@ -1,0 +1,35 @@
+# --- KiCad ---
+*-backups/
+*.kicad_prl
+fp-info-cache
+*.lck
+~*.lck
+_autosave-*
+\#auto_saved_files\#
+*.bak
+*-bak
+*.kicad_sch-bak
+*.kicad_pcb-bak
+# Generated fab outputs: regenerate with /pre-order; the order record lives in docs/hardware/fabrication.md
+hardware/kicad/production/
+
+# --- QMK build outputs ---
+*.uf2
+*.hex
+*.bin
+.build/
+
+# --- Datasheets: keep links in docs/hardware/datasheets/README.md, not the PDFs ---
+docs/hardware/datasheets/*.pdf
+
+# --- Claude Code files: every CLAUDE.md, any case, at any depth ---
+.claude/settings.local.json
+CLAUDE*.md
+claude*.md
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
