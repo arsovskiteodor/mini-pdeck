@@ -4,8 +4,8 @@
 against the real part.
 
 ## 05 Install KiCad 10 and do the tutorial
-- **Exit criterion:** one practice board routed, start to finish, in the official tutorial.
-- **Evidence:** a log entry. The practice project stays out of this repo.
+- **Exit criterion:** one personal KiCad 10 project routed, start to finish (schematic, PCB, routing). It replaces the official-tutorial practice board. Agreed by the owner on 2026-10-29, and narrowed the same day to drop ERC and DRC at the owner's request; see the log.
+- **Evidence:** a log entry reported by the owner with the date, naming the project and its files. The project stays out of this repo.
 
 ## 06 Draw the schematic
 - Use the pins confirmed in step 04. Add optional 4.7 kΩ SDA/SCL pull-ups, marked "do not fit".
