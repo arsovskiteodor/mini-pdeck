@@ -43,10 +43,16 @@ Record every value in the Measurements table, with method and date.
 - [ ] Shaft top above the PCB; knob height; knob top above the PCB (→ `mechanical.md`)
 
 ### DISP1: OLED
-- [ ] **Pin order as printed on the module** (photo in the log)
+- Listing photos (owner screenshots, 2026-10-29; seller not recorded), not measured on the received module:
+  front header labels read VCC, GND, SCL, SDA from left to right. The back shows address pads labelled
+  0x78 and 0x7A, and chip resistors and capacitors printed R5, R6, R7, R10 and C1 to C9 (values not legible).
+  The board is marked "HW-239", but the DISP1 row above says QWORK, so confirm the photos match the ordered module.
+- [ ] **Pin order as printed on the module** (no photo in the log yet; see the listing photos above)
 - [ ] Works at 3.3 V on the breadboard
-- [ ] I2C address (0x3C or 0x3D)
-- [ ] On-board pull-ups? (with power off, measure the resistance SDA→VCC and SCL→VCC)
+- [ ] I2C address (0x3C or 0x3D). SSD1306 §8.1.5 (page TBD): 7-bit `0111100` (0x3C) or `0111101` (0x3D), chosen by the SA0 bit, which the D/C# pin provides. Write address 0x78 / 0x7A. Confirm which pad is bridged on the module.
+- [ ] On-board pull-ups? (with power off, measure the resistance SDA→VCC and SCL→VCC). SSD1306 §8.1.5 (page TBD) says SDA and SCL must both be connected to pull-up resistors. If the module has none, we add them on our board, with values from the datasheet's I2C timing, not from memory. The RP2040's internal pulls (50 to 80 kΩ, RP2040 datasheet Table 625, p. 616) are not a substitute: §4.3 (p. 441) says external pull-ups should be on the board, because the internal ones may not be strong enough.
+  Sources: NXP UM10204 Rev 7.0, Table 10 (p. 44 of 62: tr max 1000 ns Standard, 300 ns Fast, 120 ns Fast-mode Plus; Cb max 400 pF), §7.1 (p. 50 of 62), example (p. 52 of 62). Equation images were not extracted from the PDF text, so check the formulas by hand. RP2040 datasheet Table 625 (p. 616) and §4.3 (p. 441).
+  External pull-up value: **TBD**. Inputs so far: Rp(min) ≈ 0.97 kΩ at VDD 3.3 V (UM10204 p. 52 of 62, VOL 0.4 V at 3 mA); Rp(max) = tr / (0.8473 × Cb) (p. 50 of 62), with Fast-mode tr max 300 ns (p. 44 of 62). Still needed: the bus capacitance Cb (measure it), the SSD1306's own tr limit (its I2C timing table, page TBD), and whether the module's pulls sit in parallel with ours.
 - [ ] Module outline, header position, mounting holes (diameter, spacing)
 - [ ] Glass top height above the PCB when mounted on the header (→ `mechanical.md`)
 
