@@ -11,7 +11,7 @@
 | Surface finish | HASL lead-free |
 | Copper weight | 1 oz |
 | Solder mask colour | Owner's choice (check that it doesn't add cost or build time) |
-| Assembly (PCBA) | No: everything is through-hole and hand-soldered |
+| Assembly (PCBA) | No: everything is hand-soldered by the owner. All parts are through-hole except the four 1206 LEDs D1–D4 (ADR-0009) |
 | Order-number marking | Choose "specify location" and place JLCPCB's placeholder text on the back silkscreen, or accept their default placement. **Check the current option names on the order page.** |
 
 ## Project design rules (conservative)

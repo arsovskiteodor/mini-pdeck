@@ -11,9 +11,9 @@ Run the pre-order check for `hardware/kicad/minipad`.
    command fails, check `kicad-cli <command> --help` and adapt instead of guessing.
    Make sure `hardware/kicad/production/` exists (it's gitignored, so a fresh clone won't have it).
 2. ERC:
-   `kicad-cli sch erc --severity-all --exit-code-violations -o hardware/kicad/production/erc.rpt hardware/kicad/minipad.kicad_sch`
+   `kicad-cli sch erc --severity-all --exit-code-violations -o hardware/kicad/production/erc.rpt hardware/kicad/mini-pdeck.kicad_sch`
 3. DRC (with schematic parity):
-   `kicad-cli pcb drc --schematic-parity --severity-all --exit-code-violations -o hardware/kicad/production/drc.rpt hardware/kicad/minipad.kicad_pcb`
+   `kicad-cli pcb drc --schematic-parity --severity-all --exit-code-violations -o hardware/kicad/production/drc.rpt hardware/kicad/mini-pdeck.kicad_pcb`
 4. For every violation, explain what it means, the likely cause, and whether it must be fixed or is
    acceptable (with the reason). The bar is zero unexplained violations.
 5. Check that the board outline is at most 100 × 100 mm and that the design rules match

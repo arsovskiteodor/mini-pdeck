@@ -6,6 +6,8 @@ fp-info-cache
 ~*.lck
 _autosave-*
 \#auto_saved_files\#
+# KiCad 10 local history: a nested git repo of its own
+.history/
 *.bak
 *-bak
 *.kicad_sch-bak
@@ -21,6 +23,9 @@ hardware/kicad/production/
 
 # --- Datasheets: keep links in docs/hardware/datasheets/README.md, not the PDFs ---
 docs/hardware/datasheets/*.pdf
+
+# --- Vendor 3D models: no licence stated; keep the download link in docs/hardware/datasheets/README.md ---
+hardware/kicad/lib/3d/*.step
 
 # --- Claude Code files: every CLAUDE.md, any case, at any depth ---
 .claude/settings.local.json

@@ -20,7 +20,8 @@ paths:
 - For checks, use `kicad-cli` (ERC, DRC, exports), not visual guesses.
 - A pin change updates `docs/hardware/pinout.md`, the schematic and `firmware/qmk/minipad/keyboard.json`
   together. Flag the ones you didn't touch.
-- Board constraints (ADR-0007): 2 layers, at most 100 × 100 mm, through-hole only, hand-soldered.
+- Board constraints (ADR-0009): 2 layers, at most 100 × 100 mm, hand-soldered, through-hole only except the
+  four 1206 LEDs under the switches (D1–D4).
 - Watch for: MCU module orientation (mirrored if on the back), OLED pin order from the
   *received* module, USB-C at the board edge, BOOT button access, silkscreen labels for every
   key, encoder and the OLED pins.

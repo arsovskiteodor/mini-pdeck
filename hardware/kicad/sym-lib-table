@@ -1,0 +1,5 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "minipad") (type "KiCad") (uri "${KIPRJMOD}/lib/minipad.kicad_sym") (options "") (descr "Our own symbols"))
+	(lib (name "RP2040-ZERO") (type "KiCad") (uri "${KIPRJMOD}/lib/third_party/snapmagic-RP2040-ZERO/RP2040-ZERO.kicad_sym") (options "") (descr ""))
+)
