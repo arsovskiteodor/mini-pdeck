@@ -5,11 +5,11 @@ Every number here is either **measured** (with date) or **TBD**. Nothing comes f
 ## Stack-up (height above the PCB top surface)
 | Item | Height (mm) | Source |
 |---|---|---|
-| PCB thickness | 1.6 | Fab setting (ADR-0007) |
+| PCB thickness | 1.6 | Fab setting (ADR-0009) |
 | Keycap top, switch seated | TBD | Measure (parts.md) |
 | Encoder shaft top | TBD (listing: 20 mm shaft) | Measure |
 | Knob top | TBD | Measure |
-| OLED glass top on its header | TBD | Measure |
+| OLED glass top, module header soldered into the board | TBD | Measure (header spacer + module) |
 | RP2040-Zero top incl. USB-C (flat mount) | TBD | Measure |
 | Tallest thing on the underside (pin stubs after trimming) | TBD | Measure |
 
@@ -24,9 +24,21 @@ use a lower knob (6 mm knurled), or accept the difference.
 - **BOOT button:** reachable through the case, or Bootmagic configured (ADR-0001, ADR-0005).
 
 ## Board outline
-- At most 100 × 100 mm (ADR-0007). Target: as small as the parts and spacing allow.
+- At most 100 × 100 mm (ADR-0009). Target: as small as the parts and spacing allow.
 - Mounting holes: number, size (M2 or M3) and position TBD; they depend on the case (STATUS Q7).
 - Rounded corners: optional, cosmetic.
+
+## Inputs for the case decision (Q7)
+- **OLED mounting** (discussed 2026-10-30). The module's own header is soldered into the board (no socket), so the
+  header holds one edge. Mounting holes are **undecided** (owner, 2026-10-30).
+  - A. Module on the PCB, plus standoffs in its four holes; the case has a window over the display. Recommended: the
+    PCB and display stay one testable unit.
+  - B. Module screwed to the case, connected to the PCB by four wires instead of the header.
+  - C. Module screwed to the case *and* soldered to the board: not recommended. Two parts fix its position, so any
+    case-to-PCB mismatch bends the header and its joints.
+  - D. No holes: header only, with a lip in the case lid resting on the module's far edge.
+  - Standoffs (option A): nylon, height = the module's header spacer height (measure). Keep traces away from the
+    standoff and screw-head area.
 
 ## Checks before step 10
 - [ ] 1:1 paper print of the board with every real part placed on it

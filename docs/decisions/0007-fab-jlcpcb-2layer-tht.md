@@ -1,6 +1,6 @@
 # ADR-0007: Fab: JLCPCB, 2 layers, at most 100 × 100 mm, through-hole, hand-soldered
 
-- **Status:** Accepted
+- **Status:** Superseded by ADR-0009
 - **Date:** 2026-10-28
 - **Step:** 01 Lock the spec
 
