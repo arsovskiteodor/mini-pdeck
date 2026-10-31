@@ -22,3 +22,4 @@ what we picked and what that commits us to. Create a new one with `/decision <ti
 | [0007](0007-fab-jlcpcb-2layer-tht.md) | Fab: JLCPCB, 2 layers, at most 100 × 100 mm, THT, hand-soldered | Superseded by 0009 | 2026-10-28 |
 | [0008](0008-remapping-via-then-own-app.md) | Remapping: VIA first, own PC app later | Accepted | 2026-10-28 |
 | [0009](0009-fab-tht-plus-hand-soldered-1206-leds.md) | Fab: as 0007, plus hand-soldered 1206 LEDs under the switches | Accepted | 2026-10-30 |
+| [0010](0010-m3-mounting-holes-at-the-corners.md) | Mounting holes: four M3, one per corner, plated and tied to GND | Accepted | 2026-10-31 |

@@ -26,6 +26,11 @@ docs/hardware/datasheets/*.pdf
 
 # --- Vendor 3D models: no licence stated; keep the download link in docs/hardware/datasheets/README.md ---
 hardware/kicad/lib/3d/*.step
+hardware/kicad/lib/third_party/waveshare-RP2040-Zero-3d/*.stp
+hardware/kicad/lib/third_party/snapmagic-RP2040-ZERO/models/*.step
+hardware/kicad/lib/third_party/snapmagic-RP2040-ZERO/*.zip
+# Board 3D exports embed the vendor models above; export to hardware/kicad/production/ instead
+hardware/kicad/*.step
 
 # --- Claude Code files: every CLAUDE.md, any case, at any depth ---
 .claude/settings.local.json

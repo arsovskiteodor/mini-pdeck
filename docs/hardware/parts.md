@@ -187,8 +187,11 @@ then adjust our copy if needed.
 - **Owner's decision (2026-10-30, replaces the female-socket choice made earlier the same day): no socket.** The
   module's own 1×4 male header is soldered straight into four through-holes on our board. Lower and stiffer than a
   socket; replacing a module means desoldering four pins.
-- DISP1 footprint (2026-10-30): `minipad.pretty/PinHeader_1x04_P2.54mm_Vertical` (KiCad 10 stock copy: 1.7 mm pads,
-  1.0 mm drill, 2.54 mm pitch; its 3D model, a header with a plastic spacer, stands in for the module's own pins).
+- DISP1 footprint (2026-10-30): `PinHeader_1x04_P2.54mm_Vertical` (KiCad 10 stock: 1.7 mm pads, 1.0 mm drill,
+  2.54 mm pitch; its 3D model, a header with a plastic spacer, stands in for the module's own pins). The schematic
+  and PCB link KiCad's stock `Connector_PinHeader_2.54mm` library, not the identical `minipad.pretty` copy: owner's
+  choice (2026-10-31), the one exception to "every footprint in `minipad.pretty`", until our own OLED footprint
+  replaces it.
 - **Mounting holes: undecided** (owner, 2026-10-30). Options in `mechanical.md`, Q7 inputs.
 - [ ] Module's male pins: present or loose in the bag? Solder them to the module first if loose
 - [ ] Header pitch 2.54 mm and pin diameter (calipers), to confirm the 1.0 mm drill

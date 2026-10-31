@@ -1,10 +1,10 @@
 # Status
 
-**Updated:** 2026-10-30 · **Phase:** 2, Prototype · **Step:** 03, Buy the parts (in transit), with a draft schematic (06) running ahead
+**Updated:** 2026-10-31 · **Phase:** 2, Prototype · **Step:** 03, Buy the parts (in transit), with a draft schematic (06), placement (08) and routing (09) running ahead
 
 ## Next actions
 1. Send the supplier list (log 2026-10-30) and order: 10 white 1206 LEDs; THT resistors 330 Ω, 220 Ω, 470 Ω, 2.2 kΩ, 4.7 kΩ (owner).
-2. Reassign DISP1 to `minipad:PinHeader_1x04_P2.54mm_Vertical`, F8 in the PCB, save, then commit.
+2. Commit today's work. Then in KiCad: DISP1 Update Symbol from Library without resetting fields (clears the ERC warning), and fill the four DRC exclusion comments (log 2026-10-31).
 3. Record the keycap model (Q8), then the key pitch (Q5). Write the Q1 ADR (soldered switches); Q4 waits for the clone.
 4. Step 07 prep: compare the three RP2040-Zero footprint candidates in `lib/third_party/` with the Waveshare drawing.
 5. When parts arrive: `/check-part` each (calipers, 1:1 prints, LED forward voltage Q12, OLED Q3/Q10, encoder pins and tabs), then step 04 on **one** RP2040-Zero.
@@ -20,7 +20,7 @@
 | Q3 | Does the OLED module have I2C pull-ups on board? | Step 06 | Measure the module on arrival (`parts.md`, DISP1) |
 | Q5 | Key pitch for the chosen low-profile keycaps | Step 08 | Keycap drawing or measurement; depends on Q8 |
 | Q6 | Knob height vs keycap height | Step 08 | Stack-up in `mechanical.md` (encoder model: shaft top 26.6 mm above the PCB) |
-| Q7 | Case approach, including OLED support and mounting holes | Step 08 | ADR. Inputs: `mechanical.md`, "Inputs for the case decision" |
+| Q7 | Case approach, including OLED support (board mounting holes settled: ADR-0010) | Step 08 | ADR. Inputs: `mechanical.md`, "Inputs for the case decision" |
 | Q8 | Exact keycap model and link | Now | Owner fills in `parts.md` |
 | Q9 | External I2C pull-up value (2.2 kΩ or 4.7 kΩ) | Step 06 | Measured bus capacitance and the SSD1306 tr limit (`parts.md`, DISP1) |
 | Q10 | Is the received OLED the listing's module (QWORK WD46221; photos show HW-239)? Which address pad is bridged? | Step 04 | Inspect the received module |
@@ -36,8 +36,8 @@
 - [x] 05 Install KiCad 10 and do the tutorial (gate passed 2026-10-29 under the narrowed criterion; log Session 5)
 - [~] 06 Draw the schematic (draft, ERC clean, pins not yet breadboard-confirmed)
 - [ ] 07 Verify every footprint (candidates recorded in `parts.md`; needs the real parts)
-- [ ] 08 Place the parts
-- [ ] 09 Route and pour ground
+- [~] 08 Place the parts (draft: rough ~70 × 69 mm outline, M3 corner holes per ADR-0010; key pitch and footprints not yet verified)
+- [~] 09 Route and pour ground (draft: all nets routed on F.Cu, GND pour both layers, DRC clean 2026-10-31; will change after 07/08)
 - [ ] 10 Run the pre-order checks
 - [ ] 11 Get a design review
 - [ ] 12 Export and order
