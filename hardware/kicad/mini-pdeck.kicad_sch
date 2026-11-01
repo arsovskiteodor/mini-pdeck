@@ -1701,7 +1701,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "minipad:PinSocket_1x04_P2.54mm_Vertical"
+			(property "Footprint" "minipad:PinHeader_1x04_P2.54mm_Vertical"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1723,7 +1723,7 @@
 					)
 				)
 			)
-			(property "Description" "0.96in 128x64 OLED module (SSD1306, I2C), plugged into a 1x4 female socket. Pin order from listing photos (VCC, GND, SCL, SDA); confirm on the received module (docs/hardware/parts.md, DISP1)"
+			(property "Description" "0.96in 128x64 OLED module (SSD1306, I2C), its own 1x4 header soldered straight into the board. Pin order from listing photos (VCC, GND, SCL, SDA); confirm on the received module (docs/hardware/parts.md, DISP1)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
