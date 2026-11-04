@@ -16,7 +16,7 @@ A footprint may only be finalised from a `verified` part.
 | — | No OLED socket: the module's own male header is soldered into the board (owner, 2026-10-30) | 0 | — | — | — | — |
 | D1–D4 | White SMD LED, 1206, under each switch. Candidate: Diotronic LSMD1206B (maker and part number unknown) | 4 / 0 | Diotronic | €0.16 excl. VAT, MOQ 10 | candidate: **buy with checks** (forward voltage measured on arrival) | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
 | R3–R6 | LED series resistors, THT 1/4 W axial (footprint DIN0207, 7.62 mm pitch), **330 Ω provisional** (confirm with the measured LED forward voltage; also buy 220 Ω and 470 Ω) | 4 / 0 | TBD | — | not bought | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
-| PCB | JLCPCB 2-layer, 5 boards | 5 | JLCPCB | about $2 + shipping | step 12 | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
+| PCB | PCBWay 2-layer, 5 boards | 5 | PCBWay | Quote 2026-11-01: $5.00 boards (24 h build) + $4.52 Global Direct shipping (6–10 business days) = $9.52, excl. customs and VAT; paid cost in `fabrication.md` | step 12 | [0012](../decisions/0012-fab-pcbway-instead-of-jlcpcb.md) |
 
 **Tools and consumables (not on the PCB):** breadboard, jumper wires, **data-capable** USB-C cable,
 soldering iron, solder, flux, calipers, multimeter.
@@ -31,6 +31,27 @@ footprint in `lib/third_party/snapmagic-RP2040-ZERO/`, with one change: the Wave
 one the owner set by eye in the board on 2026-10-30 (KiCad local history); check it in the 3D view. The model had been
 attached to the board's copy only, so it was lost when the board reloaded footprints from the library.
 Which footprint to use (SnapMagic, bobu01, or our own) is still step 07, against the Waveshare drawing and the clone.
+
+**Compared with the Waveshare drawing (2026-11-01, Claude, before ordering Rev A, ADR-0011).** Sources: the wiki's
+dimension image (https://www.waveshare.com/w/upload/f/f4/900px-RP2040-Zero-details-size.jpg, top view, mm) and pinout
+image (https://www.waveshare.com/w/upload/1/1f/900px-RP2040-Zero-details-7.jpg). Both are for the original, not the clone.
+
+| Item | Waveshare drawing | `minipad` footprint (SnapMagic copy) | Match |
+|---|---|---|---|
+| Outline | 18.00 × 23.50 mm, corner R1.00 | F.Fab 18.0 × 23.5 mm (x ±9.0, y ±11.75) | yes |
+| Pin pitch | 2.54 mm, all three edges | 2.54 mm | yes |
+| First pin to the USB-C end | 1.59 mm | 11.75 − 10.16 = 1.59 mm | yes |
+| Pin centre to the long edge | 1.38 mm (so rows 15.24 mm apart) | 9.0 − 7.62 = 1.38 mm | yes |
+| Bottom row, GP9 to the right edge | 3.92 mm | 9.0 − 5.08 = 3.92 mm | yes |
+| Pin order, top view, USB-C up | Left: 5V, GND, 3V3, 29, 28, 27, 26, 15, 14. Right: 0–8. Bottom, left to right: 13, 12, 11, 10, 9 | Same, pad by pad through the schematic symbol | yes (23/23) |
+| Onboard WS2812 | GP16, bottom-side only | not on a footprint pad | — |
+
+- The bobu01 footprint (independent source) agrees with this one on all 23 pads, rotated 90°.
+- On the board: U1 on F.Cu, not rotated, USB-C end toward the top edge; module outline 0.15 mm inside the board edge.
+  U1's nets match `pinout.md`. The module's bottom pads (GP17–GP25, GND) face our board; the 16 GND vias under it
+  are tented on both sides (board setting).
+- Not settled by the drawing: drill size (1.0 mm here, 0.8 or 1.0 mm in bobu01) depends on the header pins used, and
+  the clone's dimensions. The footprint stays a candidate until the clone is measured (checklist below).
 
 - [ ] Length, width, thickness (with the USB-C connector)
 - [ ] Pin pitch along each edge, and spacing between opposite rows
@@ -141,7 +162,7 @@ a generic EC11 that matches our listing (shaft L = 20 mm; listing's 30 mm overal
 | Switch pins (D/E = S1/S2) | 5 mm apart | 5 mm apart | yes |
 | Pin row to switch row | 7.5 + 7 = 14.5 mm | 14.5 mm | yes |
 | Tab line from the A–C–B row | 7.5 mm | 7.5 mm | yes |
-| Pin hole | 5 × Ø1.2 mm | drill 1.0 mm | **differs** |
+| Pin hole | 5 × Ø1.2 mm | drill 1.2 mm, pad Ø2.0 mm (was 1.0 mm stock; changed 2026-11-01, owner, ADR-0011) | yes |
 | Mounting tabs | slots 1.8 × 2.2 mm, 12.2 mm over the outer edges (so about 10.4 mm centre to centre) | oval drill 2.8 × 1.5 mm, 11.2 mm centre to centre | **differs** |
 
 **3D model (2026-10-30):** KiCad's stock model for this footprint is not installed (no `Rotary_Encoder.3dshapes` in
@@ -151,11 +172,12 @@ Same pin pattern as our footprint (2.5 mm pitch, 14.5 mm between rows, from its 
 vertices: shaft top 26.6 mm above the PCB, pins 3.2 mm below, about 29.8 mm overall, against the listing's 30 mm.
 Differences: Bourns body and a flatted shaft instead of our knurled one. Placed with offset (7.5, −2.5, 0) mm and
 rotation Z −90°; checked with `kicad-cli pcb render` on a test board (pins in the holes, tabs in the slots, body on
-the board). Our footprint copy now differs from KiCad stock in this model line only.
+the board). Our footprint copy differs from KiCad stock in this model line and, since 2026-11-01, in the five pin
+drills (1.0 → 1.2 mm, owner's choice before ordering Rev A, ADR-0011: a larger hole also takes a thinner pin).
 
-The pin pattern agrees; the pin hole and the tab slots don't. Ours is a generic clone, so the real encoder decides:
-measure the pin cross-section (hole = pin + 0.2 to 0.3 mm, `fabrication.md`) and the tab width, thickness and spacing,
-then adjust our copy if needed.
+The pin pattern and pin hole agree with the drawing; the tab slots don't (left as stock for Rev A, owner,
+2026-11-01). Ours is a generic clone, so the real encoder decides: measure the pin cross-section (hole = pin + 0.2 to
+0.3 mm, `fabrication.md`) and the tab width, thickness and spacing, then adjust our copy if needed.
 
 - [ ] 5 pins (A, C, B on one side; 2 switch pins on the other) plus 2 mounting tabs
 - [ ] Detents per turn (count them) = 20?
@@ -187,8 +209,11 @@ then adjust our copy if needed.
 - **Owner's decision (2026-10-30, replaces the female-socket choice made earlier the same day): no socket.** The
   module's own 1×4 male header is soldered straight into four through-holes on our board. Lower and stiffer than a
   socket; replacing a module means desoldering four pins.
-- DISP1 footprint (2026-10-30): `minipad.pretty/PinHeader_1x04_P2.54mm_Vertical` (KiCad 10 stock copy: 1.7 mm pads,
-  1.0 mm drill, 2.54 mm pitch; its 3D model, a header with a plastic spacer, stands in for the module's own pins).
+- DISP1 footprint (2026-10-30): `PinHeader_1x04_P2.54mm_Vertical` (KiCad 10 stock: 1.7 mm pads, 1.0 mm drill,
+  2.54 mm pitch; its 3D model, a header with a plastic spacer, stands in for the module's own pins). The schematic
+  and PCB link KiCad's stock `Connector_PinHeader_2.54mm` library, not the identical `minipad.pretty` copy: owner's
+  choice (2026-10-31), the one exception to "every footprint in `minipad.pretty`", until our own OLED footprint
+  replaces it.
 - **Mounting holes: undecided** (owner, 2026-10-30). Options in `mechanical.md`, Q7 inputs.
 - [ ] Module's male pins: present or loose in the bag? Solder them to the module first if loose
 - [ ] Header pitch 2.54 mm and pin diameter (calipers), to confirm the 1.0 mm drill

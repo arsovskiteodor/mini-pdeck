@@ -17,7 +17,8 @@ Every number here is either **measured** (with date) or **TBD**. Nothing comes f
 use a lower knob (6 mm knurled), or accept the difference.
 
 ## Spacing
-- **Key pitch:** TBD (STATUS Q5). MX standard is 19.05 mm. Check the drawing or a measurement of the chosen keycaps.
+- **Key pitch:** 19.1 mm in both directions on the Rev A board (owner, 2026-11-01), provisional until the keycap
+  model is known (STATUS Q8, Q5; ADR-0011). MX standard is 19.05 mm. Check the drawing or a measurement of the chosen keycaps.
 - **Encoder clearance:** knob diameter (TBD) plus finger room next to the nearest keycap.
 - **OLED:** module outline TBD; keep it clear of the knobs.
 - **USB-C:** at the board edge, flush or slightly overhanging. The cable plug body needs clearance in the case.
@@ -25,7 +26,10 @@ use a lower knob (6 mm knurled), or accept the difference.
 
 ## Board outline
 - At most 100 × 100 mm (ADR-0009). Target: as small as the parts and spacing allow.
-- Mounting holes: number, size (M2 or M3) and position TBD; they depend on the case (STATUS Q7).
+- Outline on the board (2026-10-31): a rough box of about 70 × 69 mm around the draft placement, not a target size.
+- Mounting holes: four M3, one per corner, plated pad on GND (`MountingHole_3.2mm_M3_Pad`, ADR-0010). Exact
+  positions follow the final outline, at the centre of each corner arc. Screw head or standoff clearance to the
+  keycaps, knobs, OLED and USB-C plug: TBD (ADR-0010, Consequences).
 - Rounded corners: optional, cosmetic.
 
 ## Inputs for the case decision (Q7)

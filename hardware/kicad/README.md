@@ -31,7 +31,7 @@ hardware/kicad/
 | Gateron KS-33 | `minipad.pretty/SW_Gateron_LowProfile_THT`: copy of `key-switches.pretty` (soldered, Q1) with Gateron's 3D model added (`lib/3d/`, gitignored). Checked against the Gateron drawing (`parts.md`, SW1–SW4) | Real switch, 1:1 print |
 | White LED 1206 (D1–D4, ADR-0009) | `minipad.pretty/LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder`: unchanged copy of KiCad 10 stock | Pads inside the switch's LED window (`parts.md`, D1–D4); real LED with calipers |
 | EC11 | `minipad.pretty/RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm`: copy of KiCad 10 stock with a Bourns PEC11R 3D model as stand-in (`lib/3d/`, gitignored). Pin hole and tab slots differ from the SR Passives drawing (`parts.md`, ENC1–ENC2) | Real encoder, 1:1 print |
-| OLED | Now: `minipad.pretty/PinHeader_1x04_P2.54mm_Vertical`, unchanged copy of KiCad 10 stock (the module's header is soldered in, no socket). Later: our own footprint with the module outline, and mounting holes if chosen (Q7), from calipers | Received module (pin order!) |
+| OLED | Now: KiCad 10 stock `Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical`, linked straight from the stock library (owner, 2026-10-31; an identical copy sits unused in `minipad.pretty`). The module's header is soldered in, no socket. Later: our own footprint with the module outline, and mounting holes if chosen (Q7), from calipers | Received module (pin order!) |
 | Resistors R1–R6 (pull-ups, LED series) | `minipad.pretty/R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal`: unchanged copy of KiCad 10 stock (1/4 W, body 6.3 × Ø2.5 mm, 7.62 mm pitch, 0.8 mm drill) | Real resistor: body size and lead diameter with calipers |
 
 ## Habits

@@ -1,6 +1,6 @@
 # ADR-0009: Fab: JLCPCB, 2 layers, at most 100 × 100 mm, through-hole plus hand-soldered 1206 LEDs under the switches
 
-- **Status:** Accepted
+- **Status:** Superseded by ADR-0012
 - **Date:** 2026-10-30
 - **Step:** 06 Draw the schematic
 - **Supersedes:** ADR-0007
