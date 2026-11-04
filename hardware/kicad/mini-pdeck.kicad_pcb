@@ -702,7 +702,7 @@
 		(descr "Gateron Low Profile (KS-27 & KS-33) style mechanical keyboard switch, through-hole soldering, single-sided mounting. Gateron Low Profile and Cherry MX Low Profile are NOT compatible.")
 		(tags "switch, low_profile")
 		(property "Reference" "SW4"
-			(at 6.8 -9.1 0)
+			(at 6.5 -9.1 0)
 			(unlocked yes)
 			(layer "F.SilkS" knockout)
 			(uuid "0e0f4780-cfd6-4288-ad92-81d621881c4e")

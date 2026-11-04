@@ -17,7 +17,8 @@ Every number here is either **measured** (with date) or **TBD**. Nothing comes f
 use a lower knob (6 mm knurled), or accept the difference.
 
 ## Spacing
-- **Key pitch:** TBD (STATUS Q5). MX standard is 19.05 mm. Check the drawing or a measurement of the chosen keycaps.
+- **Key pitch:** 19.1 mm in both directions on the Rev A board (owner, 2026-11-01), provisional until the keycap
+  model is known (STATUS Q8, Q5; ADR-0011). MX standard is 19.05 mm. Check the drawing or a measurement of the chosen keycaps.
 - **Encoder clearance:** knob diameter (TBD) plus finger room next to the nearest keycap.
 - **OLED:** module outline TBD; keep it clear of the knobs.
 - **USB-C:** at the board edge, flush or slightly overhanging. The cable plug body needs clearance in the case.

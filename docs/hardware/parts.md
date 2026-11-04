@@ -16,7 +16,7 @@ A footprint may only be finalised from a `verified` part.
 | — | No OLED socket: the module's own male header is soldered into the board (owner, 2026-10-30) | 0 | — | — | — | — |
 | D1–D4 | White SMD LED, 1206, under each switch. Candidate: Diotronic LSMD1206B (maker and part number unknown) | 4 / 0 | Diotronic | €0.16 excl. VAT, MOQ 10 | candidate: **buy with checks** (forward voltage measured on arrival) | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
 | R3–R6 | LED series resistors, THT 1/4 W axial (footprint DIN0207, 7.62 mm pitch), **330 Ω provisional** (confirm with the measured LED forward voltage; also buy 220 Ω and 470 Ω) | 4 / 0 | TBD | — | not bought | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
-| PCB | JLCPCB 2-layer, 5 boards | 5 | JLCPCB | about $2 + shipping | step 12 | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
+| PCB | PCBWay 2-layer, 5 boards | 5 | PCBWay | Quote 2026-11-01: $5.00 boards (24 h build) + $4.52 Global Direct shipping (6–10 business days) = $9.52, excl. customs and VAT; paid cost in `fabrication.md` | step 12 | [0012](../decisions/0012-fab-pcbway-instead-of-jlcpcb.md) |
 
 **Tools and consumables (not on the PCB):** breadboard, jumper wires, **data-capable** USB-C cable,
 soldering iron, solder, flux, calipers, multimeter.

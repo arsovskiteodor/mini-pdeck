@@ -18,6 +18,7 @@ and note the page numbers you relied on in `parts.md`.
 | SSD1306 | Controller datasheet, v1.1 (Crystalfontz) | https://www.crystalfontz.com/controllers/SSD1306 | Listing page with the PDF. Not read. Page numbers TBD. |
 | SSD1306 | Controller datasheet, Rev 1.5 "Advance Information" (Radiolocman) | https://www.radiolocman.com/datasheet/data.html?di=615783 | Found in search, not read. Page numbers TBD. |
 | SSD1306 | Controller datasheet (ChipDip copy) | https://static.chipdip.ru/lib/490/DOC001490735.pdf | Found in search. Revision and maker not checked. Not read. |
-| JLCPCB | PCB capabilities | https://jlcpcb.com/capabilities/pcb-capabilities | Check before ordering |
+| PCBWay | PCB capabilities | https://www.pcbway.com/capabilities.html | Fab for Rev A (ADR-0012). Check before ordering |
+| JLCPCB | PCB capabilities | https://jlcpcb.com/capabilities/pcb-capabilities | Previous fab (ADR-0009, superseded) |
 | QMK | RP2040 platform, Encoders, OLED driver | https://docs.qmk.fm | |
 | VIA | Configuring QMK for VIA | https://caniusevia.com/docs/configuring_qmk/ | |
