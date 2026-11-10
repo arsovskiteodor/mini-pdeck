@@ -7,15 +7,15 @@ A footprint may only be finalised from a `verified` part.
 ## Bill of materials (v1)
 | Ref | Part | Qty need / bought | Source | Price | Status | ADR |
 |---|---|---|---|---|---|---|
-| U1 | RP2040-Zero clone (DUBEUYEW), USB-C, 2 MB flash | 1 / 2 | Amazon | €9.99 (2) | ordered 2026-10-28 | [0001](../decisions/0001-mcu-rp2040-zero-module.md) |
-| SW1–SW4 | Gateron KS-33 Low Profile 2.0 Red Silent, linear, 45 gf | 4 / 35 | Amazon | €15.26 (35) | ordered 2026-10-28 | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
+| U1 | RP2040-Zero clone (DUBEUYEW), USB-C, 2 MB flash | 1 / 2 | Amazon | €9.99 (2) | arrived 2026-11-08 (owner) | [0001](../decisions/0001-mcu-rp2040-zero-module.md) |
+| SW1–SW4 | Gateron KS-33 Low Profile 2.0 Red Silent, linear, 45 gf | 4 / 35 | Amazon | €15.26 (35) | ordered 2026-10-28; expected 2026-11-12 (owner) | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
 | — | Low-profile keycaps, KS-33 compatible: **model TBD (STATUS Q8)** | 4 / TBD | TBD | TBD | TBD | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
 | ENC1–ENC2 | EC11, push switch, 20 steps/turn, 6 mm knurled shaft 20 mm, knobs included (Xatgiouy). Rev A footprint pad drill 1.2 mm: a safe choice, **not measured** (owner, 2026-11-04); pin diameter TBD (Q14) | 2 / 5 | Amazon | €7.99 (5) | arrived 2026-11-04 (owner) | [0003](../decisions/0003-encoders-ec11-with-push.md) |
 | DISP1 | 0.96" OLED 128×64, SSD1306, I2C, 4-pin (QWORK; received board marked HW-239) | 1 / 3 | Amazon | €10.55 (3) | arrived 2026-11-04 (owner) | [0004](../decisions/0004-oled-ssd1306-i2c.md) |
-| R1–R2 | THT 1/4 W axial (footprint DIN0207, 7.62 mm pitch), SDA/SCL pull-ups: **fit only if needed** (Q3), value TBD (Q9). Buying 2.2 kΩ and 4.7 kΩ (5 each) to choose on the bench: Fast mode up to about 160 pF and 75 pF bus capacitance (UM10204 formula, see DISP1) | 0–2 / 0 | TBD | — | not bought | [0004](../decisions/0004-oled-ssd1306-i2c.md) |
+| R1–R2 | THT 1/4 W axial (footprint DIN0207, 7.62 mm pitch), SDA/SCL pull-ups: **fit only if needed** (Q3), value TBD (Q9). Buying 2.2 kΩ and 4.7 kΩ (5 each) to choose on the bench: Fast mode up to about 160 pF and 75 pF bus capacitance (UM10204 formula, see DISP1) | 0–2 / 0 | TBD | — | not bought: owner, 2026-11-10, says not needed (module pull-ups; basis to confirm, Q9) | [0004](../decisions/0004-oled-ssd1306-i2c.md) |
 | — | No OLED socket: the module's own male header is soldered into the board (owner, 2026-10-30) | 0 | — | — | — | — |
-| D1–D4 | White SMD LED, 1206, under each switch. Candidate: Diotronic LSMD1206B (maker and part number unknown) | 4 / 0 | Diotronic | €0.16 excl. VAT, MOQ 10 | candidate: **buy with checks** (forward voltage measured on arrival) | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
-| R3–R6 | LED series resistors, THT 1/4 W axial (footprint DIN0207, 7.62 mm pitch), **330 Ω provisional** (confirm with the measured LED forward voltage; also buy 220 Ω and 470 Ω) | 4 / 0 | TBD | — | not bought | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
+| D1–D4 | White SMD LED, 1206, under each switch. Candidate: Diotronic LSMD1206B (maker and part number unknown) | 4 / 10 | Diotronic | €0.16 excl. VAT, MOQ 10 | bought 2026-11-10 (owner; shop and exact part to confirm). Lights from 3V3 through 220 Ω (owner, 2026-11-10); Vf not measured | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
+| R3–R6 | LED series resistors, THT 1/4 W axial (footprint DIN0207, 7.62 mm pitch), **220 Ω provisional** (owner, 2026-11-10: bright enough from 3V3; 330 Ω not compared yet; GPIO test pending) | 4 / 15 (5 each of 220, 330, 470 Ω) | local shop | — | bought 2026-11-10 (owner) | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
 | PCB | PCBWay 2-layer, 5 boards | 5 | PCBWay | Quote 2026-11-01: $5.00 boards (24 h build) + $4.52 Global Direct shipping (6–10 business days) = $9.52, excl. customs and VAT. Ordered 2026-11-03: $6.50 boards, $11.91 order total (owner's screenshot, 2026-11-04); details in `fabrication.md`, Order history | ordered (step 12, ADR-0011) | [0012](../decisions/0012-fab-pcbway-instead-of-jlcpcb.md) |
 
 **Tools and consumables (not on the PCB):** breadboard, jumper wires, **data-capable** USB-C cable,
@@ -53,8 +53,12 @@ image (https://www.waveshare.com/w/upload/1/1f/900px-RP2040-Zero-details-7.jpg).
 - Not settled by the drawing: drill size (1.0 mm here, 0.8 or 1.0 mm in bobu01) depends on the header pins used, and
   the clone's dimensions. The footprint stays a candidate until the clone is measured (checklist below).
 
-- [ ] Length, width, thickness (with the USB-C connector)
-- [ ] Pin pitch along each edge, and spacing between opposite rows
+**Owner decision, 2026-11-08:** no ruler measurements of pin pitch or row spacing. The pin geometry is checked by
+test-fitting the module (with headers) into Rev A's U1 before soldering. Pins must pass all 23 holes without bending.
+
+- [ ] Length, width, thickness (with the USB-C connector). PCB only: 23 × 18 mm, ruler (Measurements); USB-C overhang
+  and thickness TBD, needed for the case (Q7)
+- [ ] Pin pitch along each edge, and spacing between opposite rows (by the Rev A test fit, see above)
 - [ ] USB-C position relative to the board edge
 - [ ] Which GPIOs are on edge pads vs bottom pads; compare with Waveshare's pinout
 - [ ] Enters `RPI-RP2` mode with BOOT held, and accepts a test UF2
@@ -141,6 +145,14 @@ no part number, no datasheet, no dimensions, no current rating.
   `LED_1206_3216Metric.step`.
 - **Decision (owner, 2026-10-30):** buy, since they are cheap and convenient; measure the forward voltage on arrival
   instead of waiting for a datasheet.
+- **Bench test 1, reported by owner, 2026-11-10:** RP2040-Zero 3V3 pin → 220 Ω → LED → GND, LED held on jumper wires.
+  Lights, "pretty bright" (owner, bare LED, room light, photo). So Vf < 3.3 V at this current; the listing's 3.5 V
+  looks wrong, but Vf is **not measured** (no multimeter reading) and Q12 stays open for the number. Looks bluish
+  in the photo; colour to the eye not confirmed. Not yet tested: 330 Ω and 470 Ω, under a switch, from a GPIO
+  (output high ≥ 2.62 V at 4 mA drive, so expect it dimmer on the board).
+- **R3–R6 = 220 Ω, provisional (owner, 2026-11-10),** replacing 330 Ω. Safe whatever the Vf: at most
+  (3.3 − 2.2) V / 220 Ω = 5 mA per LED with the listing's lower Vf, 20 mA for four, under the 50 mA total. May
+  change to 330 Ω after the under-switch / GPIO test.
 
 - [ ] Calipers: length, width, height (expect 3.2 × 1.6 × 1.1 mm from the listing drawing)
 - [ ] Forward voltage and current from 3.3 V through a known resistor (multimeter across the LED and the resistor)
@@ -250,6 +262,8 @@ The pin pattern and pin hole agree with the drawing; the tab slots don't (left a
 | DISP1 | Pin order | VCC, GND, SCL, SDA (front, left to right) | Photo | 2026-11-04 | Owner |
 | DISP1 | I2C address | 0x3C (7-bit) | I2C scan, Pro Micro bench sketch | 2026-11-04 | Claude (serial log), owner wired |
 | DISP1 | On-board pull-ups | Present (value TBD) | Bus works with AVR internal pull-ups off, 0 NACKs | 2026-11-04 | Claude (serial log), owner wired |
+| U1 | PCB outline, length × width (USB-C overhang **not** included) | 23 × 18 mm, ±0.5 mm (drawing: 23.50 × 18.00 mm; no conflict within ruler resolution) | Ruler | 2026-11-08 | Owner |
+| U1 | Bottom-edge holes (opposite USB-C) | 5 present (spacing not measured) | Visual count | 2026-11-08 | Owner |
 
 ## Rejected parts (don't re-suggest without new information)
 | Part | Why rejected | Date | ADR |
