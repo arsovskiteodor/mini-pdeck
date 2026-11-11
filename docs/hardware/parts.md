@@ -61,7 +61,10 @@ test-fitting the module (with headers) into Rev A's U1 before soldering. Pins mu
 - [ ] Pin pitch along each edge, and spacing between opposite rows (by the Rev A test fit, see above)
 - [ ] USB-C position relative to the board edge
 - [ ] Which GPIOs are on edge pads vs bottom pads; compare with Waveshare's pinout
-- [ ] Enters `RPI-RP2` mode with BOOT held, and accepts a test UF2
+- [x] Enters `RPI-RP2` mode with BOOT held, and accepts a test UF2 (reported by owner, 2026-11-11). `INFO_UF2.TXT`:
+  `UF2 Bootloader v3.0`, `Model: Raspberry Pi RP2`, `Board-ID: RPI-RP2`. The `minipad` QMK firmware runs, so the
+  clone's flash works with QMK's default second-stage bootloader (W25Q080-compatible, `docs/platformdev_rp2040.md`
+  in QMK); no `RP2040_FLASH_*` define needed. Flash chip part number not identified.
 - [ ] Onboard RGB LED on GP16 (from the Waveshare docs; confirm on the clone)
 
 ### SW1–SW4: Gateron KS-33
@@ -153,6 +156,12 @@ no part number, no datasheet, no dimensions, no current rating.
 - **R3–R6 = 220 Ω, provisional (owner, 2026-11-10),** replacing 330 Ω. Safe whatever the Vf: at most
   (3.3 − 2.2) V / 220 Ω = 5 mA per LED with the listing's lower Vf, 20 mA for four, under the 50 mA total. May
   change to 330 Ω after the under-switch / GPIO test.
+- **Bench test 2, reported by owner, 2026-11-11:** GPIO drive. RP2040-Zero GP9 → 220 Ω → LED → GND, `minipad` QMK
+  firmware. Steady (GP9 driven high): lights. PWM (QMK backlight, slice 4 channel B, breathing): fades smoothly.
+  Brightness at full duty, bare LED: "perfect, very bright", leaves an afterimage when stared at (owner). So a 3.3 V
+  GPIO drives it well at 220 Ω; the 5 V + transistor fallback (ADR-0009 "Revisit if") is not needed for brightness.
+  Vf and current still **not measured**. 220 Ω may be brighter than needed: compare 220/330/470 Ω under a real
+  switch at full duty and pick the brightest level actually wanted (PWM dims below it).
 
 - [ ] Calipers: length, width, height (expect 3.2 × 1.6 × 1.1 mm from the listing drawing)
 - [ ] Forward voltage and current from 3.3 V through a known resistor (multimeter across the LED and the resistor)
@@ -201,6 +210,8 @@ The pin pattern and pin hole agree with the drawing; the tab slots don't (left a
   `firmware/bench/encoder_test_promicro/` (A → D0, C → GND, B → D1, switch → D4 and GND, internal pull-ups). So the
   middle pin is the common pin on this clone. Not recorded: edges per detent (QMK `resolution`), which sign is
   clockwise, the `bad` (bounce) count, and the second encoder.
+- [x] Push switch on the RP2040 in QMK: ENC1's S1/S2 wired as K1 (S1 → GP2, S2 → GND, A/B/C unconnected), one press
+  types one `a` (reported by owner, 2026-11-11). Rotation not yet tested in QMK.
 - [ ] Pin and tab positions match `RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm` (1:1 print test)
 - [ ] Shaft top above the PCB; knob height; knob top above the PCB (→ `mechanical.md`)
 
@@ -264,6 +275,9 @@ The pin pattern and pin hole agree with the drawing; the tab slots don't (left a
 | DISP1 | On-board pull-ups | Present (value TBD) | Bus works with AVR internal pull-ups off, 0 NACKs | 2026-11-04 | Claude (serial log), owner wired |
 | U1 | PCB outline, length × width (USB-C overhang **not** included) | 23 × 18 mm, ±0.5 mm (drawing: 23.50 × 18.00 mm; no conflict within ruler resolution) | Ruler | 2026-11-08 | Owner |
 | U1 | Bottom-edge holes (opposite USB-C) | 5 present (spacing not measured) | Visual count | 2026-11-08 | Owner |
+| U1 | Bootloader | `UF2 Bootloader v3.0`, Model `Raspberry Pi RP2`, Board-ID `RPI-RP2` | `INFO_UF2.TXT` on the `RPI-RP2` drive | 2026-11-11 | Owner |
+| D1 | Brightness from GPIO (GP9, 220 Ω, full duty, bare LED) | "Very bright", afterimage when stared at (qualitative) | Eye, QMK firmware | 2026-11-11 | Owner |
+| ENC1 | Push switch on RP2040 (as K1 on GP2) | One press = one `a` | QMK firmware, Notepad | 2026-11-11 | Owner |
 
 ## Rejected parts (don't re-suggest without new information)
 | Part | Why rejected | Date | ADR |
