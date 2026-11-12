@@ -7,16 +7,16 @@ A footprint may only be finalised from a `verified` part.
 ## Bill of materials (v1)
 | Ref | Part | Qty need / bought | Source | Price | Status | ADR |
 |---|---|---|---|---|---|---|
-| U1 | RP2040-Zero clone (DUBEUYEW), USB-C, 2 MB flash | 1 / 2 | Amazon | €9.99 (2) | ordered 2026-10-28 | [0001](../decisions/0001-mcu-rp2040-zero-module.md) |
-| SW1–SW4 | Gateron KS-33 Low Profile 2.0 Red Silent, linear, 45 gf | 4 / 35 | Amazon | €15.26 (35) | ordered 2026-10-28 | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
+| U1 | RP2040-Zero clone (DUBEUYEW), USB-C, 2 MB flash | 1 / 2 | Amazon | €9.99 (2) | arrived 2026-11-08 (owner) | [0001](../decisions/0001-mcu-rp2040-zero-module.md) |
+| SW1–SW4 | Gateron KS-33 Low Profile 2.0 Red Silent, linear, 45 gf | 4 / 35 | Amazon | €15.26 (35) | ordered 2026-10-28; expected 2026-11-12 (owner) | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
 | — | Low-profile keycaps, KS-33 compatible: **model TBD (STATUS Q8)** | 4 / TBD | TBD | TBD | TBD | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
-| ENC1–ENC2 | EC11, push switch, 20 steps/turn, 6 mm knurled shaft 20 mm, knobs included (Xatgiouy) | 2 / 5 | Amazon | €7.99 (5) | ordered 2026-10-28 | [0003](../decisions/0003-encoders-ec11-with-push.md) |
-| DISP1 | 0.96" OLED 128×64, SSD1306, I2C, 4-pin (QWORK) | 1 / 3 | Amazon | €10.55 (3) | ordered 2026-10-28 | [0004](../decisions/0004-oled-ssd1306-i2c.md) |
-| R1–R2 | THT 1/4 W axial (footprint DIN0207, 7.62 mm pitch), SDA/SCL pull-ups: **fit only if needed** (Q3), value TBD (Q9). Buying 2.2 kΩ and 4.7 kΩ (5 each) to choose on the bench: Fast mode up to about 160 pF and 75 pF bus capacitance (UM10204 formula, see DISP1) | 0–2 / 0 | TBD | — | not bought | [0004](../decisions/0004-oled-ssd1306-i2c.md) |
+| ENC1–ENC2 | EC11, push switch, 20 steps/turn, 6 mm knurled shaft 20 mm, knobs included (Xatgiouy). Rev A footprint pad drill 1.2 mm: a safe choice, **not measured** (owner, 2026-11-04); pin diameter TBD (Q14) | 2 / 5 | Amazon | €7.99 (5) | arrived 2026-11-04 (owner) | [0003](../decisions/0003-encoders-ec11-with-push.md) |
+| DISP1 | 0.96" OLED 128×64, SSD1306, I2C, 4-pin (QWORK; received board marked HW-239) | 1 / 3 | Amazon | €10.55 (3) | arrived 2026-11-04 (owner) | [0004](../decisions/0004-oled-ssd1306-i2c.md) |
+| R1–R2 | THT 1/4 W axial (footprint DIN0207, 7.62 mm pitch), SDA/SCL pull-ups: **fit only if needed** (Q3), value TBD (Q9). Buying 2.2 kΩ and 4.7 kΩ (5 each) to choose on the bench: Fast mode up to about 160 pF and 75 pF bus capacitance (UM10204 formula, see DISP1) | 0–2 / 0 | TBD | — | not bought: owner, 2026-11-10, says not needed (module pull-ups; basis to confirm, Q9) | [0004](../decisions/0004-oled-ssd1306-i2c.md) |
 | — | No OLED socket: the module's own male header is soldered into the board (owner, 2026-10-30) | 0 | — | — | — | — |
-| D1–D4 | White SMD LED, 1206, under each switch. Candidate: Diotronic LSMD1206B (maker and part number unknown) | 4 / 0 | Diotronic | €0.16 excl. VAT, MOQ 10 | candidate: **buy with checks** (forward voltage measured on arrival) | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
-| R3–R6 | LED series resistors, THT 1/4 W axial (footprint DIN0207, 7.62 mm pitch), **330 Ω provisional** (confirm with the measured LED forward voltage; also buy 220 Ω and 470 Ω) | 4 / 0 | TBD | — | not bought | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
-| PCB | PCBWay 2-layer, 5 boards | 5 | PCBWay | Quote 2026-11-01: $5.00 boards (24 h build) + $4.52 Global Direct shipping (6–10 business days) = $9.52, excl. customs and VAT; paid cost in `fabrication.md` | step 12 | [0012](../decisions/0012-fab-pcbway-instead-of-jlcpcb.md) |
+| D1–D4 | White SMD LED, 1206, under each switch. Candidate: Diotronic LSMD1206B (maker and part number unknown) | 4 / 10 | Diotronic | €0.16 excl. VAT, MOQ 10 | bought 2026-11-10 (owner; shop and exact part to confirm). Lights from 3V3 through 220 Ω (owner, 2026-11-10); Vf not measured | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
+| R3–R6 | LED series resistors, THT 1/4 W axial (footprint DIN0207, 7.62 mm pitch), **220 Ω provisional** (owner, 2026-11-10: bright enough from 3V3; 330 Ω not compared yet; GPIO test pending) | 4 / 15 (5 each of 220, 330, 470 Ω) | local shop | — | bought 2026-11-10 (owner) | [0009](../decisions/0009-fab-tht-plus-hand-soldered-1206-leds.md) |
+| PCB | PCBWay 2-layer, 5 boards | 5 | PCBWay | Quote 2026-11-01: $5.00 boards (24 h build) + $4.52 Global Direct shipping (6–10 business days) = $9.52, excl. customs and VAT. Ordered 2026-11-03: $6.50 boards, $11.91 order total (owner's screenshot, 2026-11-04); details in `fabrication.md`, Order history | ordered (step 12, ADR-0011) | [0012](../decisions/0012-fab-pcbway-instead-of-jlcpcb.md) |
 
 **Tools and consumables (not on the PCB):** breadboard, jumper wires, **data-capable** USB-C cable,
 soldering iron, solder, flux, calipers, multimeter.
@@ -53,11 +53,18 @@ image (https://www.waveshare.com/w/upload/1/1f/900px-RP2040-Zero-details-7.jpg).
 - Not settled by the drawing: drill size (1.0 mm here, 0.8 or 1.0 mm in bobu01) depends on the header pins used, and
   the clone's dimensions. The footprint stays a candidate until the clone is measured (checklist below).
 
-- [ ] Length, width, thickness (with the USB-C connector)
-- [ ] Pin pitch along each edge, and spacing between opposite rows
+**Owner decision, 2026-11-08:** no ruler measurements of pin pitch or row spacing. The pin geometry is checked by
+test-fitting the module (with headers) into Rev A's U1 before soldering. Pins must pass all 23 holes without bending.
+
+- [ ] Length, width, thickness (with the USB-C connector). PCB only: 23 × 18 mm, ruler (Measurements); USB-C overhang
+  and thickness TBD, needed for the case (Q7)
+- [ ] Pin pitch along each edge, and spacing between opposite rows (by the Rev A test fit, see above)
 - [ ] USB-C position relative to the board edge
 - [ ] Which GPIOs are on edge pads vs bottom pads; compare with Waveshare's pinout
-- [ ] Enters `RPI-RP2` mode with BOOT held, and accepts a test UF2
+- [x] Enters `RPI-RP2` mode with BOOT held, and accepts a test UF2 (reported by owner, 2026-11-11). `INFO_UF2.TXT`:
+  `UF2 Bootloader v3.0`, `Model: Raspberry Pi RP2`, `Board-ID: RPI-RP2`. The `minipad` QMK firmware runs, so the
+  clone's flash works with QMK's default second-stage bootloader (W25Q080-compatible, `docs/platformdev_rp2040.md`
+  in QMK); no `RP2040_FLASH_*` define needed. Flash chip part number not identified.
 - [ ] Onboard RGB LED on GP16 (from the Waveshare docs; confirm on the clone)
 
 ### SW1–SW4: Gateron KS-33
@@ -141,6 +148,20 @@ no part number, no datasheet, no dimensions, no current rating.
   `LED_1206_3216Metric.step`.
 - **Decision (owner, 2026-10-30):** buy, since they are cheap and convenient; measure the forward voltage on arrival
   instead of waiting for a datasheet.
+- **Bench test 1, reported by owner, 2026-11-10:** RP2040-Zero 3V3 pin → 220 Ω → LED → GND, LED held on jumper wires.
+  Lights, "pretty bright" (owner, bare LED, room light, photo). So Vf < 3.3 V at this current; the listing's 3.5 V
+  looks wrong, but Vf is **not measured** (no multimeter reading) and Q12 stays open for the number. Looks bluish
+  in the photo; colour to the eye not confirmed. Not yet tested: 330 Ω and 470 Ω, under a switch, from a GPIO
+  (output high ≥ 2.62 V at 4 mA drive, so expect it dimmer on the board).
+- **R3–R6 = 220 Ω, provisional (owner, 2026-11-10),** replacing 330 Ω. Safe whatever the Vf: at most
+  (3.3 − 2.2) V / 220 Ω = 5 mA per LED with the listing's lower Vf, 20 mA for four, under the 50 mA total. May
+  change to 330 Ω after the under-switch / GPIO test.
+- **Bench test 2, reported by owner, 2026-11-11:** GPIO drive. RP2040-Zero GP9 → 220 Ω → LED → GND, `minipad` QMK
+  firmware. Steady (GP9 driven high): lights. PWM (QMK backlight, slice 4 channel B, breathing): fades smoothly.
+  Brightness at full duty, bare LED: "perfect, very bright", leaves an afterimage when stared at (owner). So a 3.3 V
+  GPIO drives it well at 220 Ω; the 5 V + transistor fallback (ADR-0009 "Revisit if") is not needed for brightness.
+  Vf and current still **not measured**. 220 Ω may be brighter than needed: compare 220/330/470 Ω under a real
+  switch at full duty and pick the brightest level actually wanted (PWM dims below it).
 
 - [ ] Calipers: length, width, height (expect 3.2 × 1.6 × 1.1 mm from the listing drawing)
 - [ ] Forward voltage and current from 3.3 V through a known resistor (multimeter across the LED and the resistor)
@@ -179,9 +200,18 @@ The pin pattern and pin hole agree with the drawing; the tab slots don't (left a
 2026-11-01). Ours is a generic clone, so the real encoder decides: measure the pin cross-section (hole = pin + 0.2 to
 0.3 mm, `fabrication.md`) and the tab width, thickness and spacing, then adjust our copy if needed.
 
-- [ ] 5 pins (A, C, B on one side; 2 switch pins on the other) plus 2 mounting tabs
-- [ ] Detents per turn (count them) = 20?
-- [ ] Push switch continuity (multimeter)
+- Received 2026-11-04 (owner's photos): knurled split shaft on a threaded bushing. The pins are **flat blades**, not
+  round, so what must pass the round 1.2 mm drill is the blade diagonal, √(width² + thickness²): TBD (Q14). Owner
+  checked spacings with a ruler (0.5 mm resolution at best) and reports they match the footprint; no numbers recorded.
+  Tab spacing (the item marked **differs** above) not yet measured. Test-fit on the Rev A board before soldering.
+- [x] 5 pins (A, C, B on one side; 2 switch pins on the other) plus 2 mounting tabs (visual, owner's photos, 2026-11-04)
+- [x] Detents per turn: **20** (owner, counted by hand, 2026-11-04)
+- [x] Rotation and push switch: "the EC11 works" (owner, 2026-11-05), one encoder on a Pro Micro with
+  `firmware/bench/encoder_test_promicro/` (A → D0, C → GND, B → D1, switch → D4 and GND, internal pull-ups). So the
+  middle pin is the common pin on this clone. Not recorded: edges per detent (QMK `resolution`), which sign is
+  clockwise, the `bad` (bounce) count, and the second encoder.
+- [x] Push switch on the RP2040 in QMK: ENC1's S1/S2 wired as K1 (S1 → GP2, S2 → GND, A/B/C unconnected), one press
+  types one `a` (reported by owner, 2026-11-11). Rotation not yet tested in QMK.
 - [ ] Pin and tab positions match `RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm` (1:1 print test)
 - [ ] Shaft top above the PCB; knob height; knob top above the PCB (→ `mechanical.md`)
 
@@ -190,10 +220,24 @@ The pin pattern and pin hole agree with the drawing; the tab slots don't (left a
   front header labels read VCC, GND, SCL, SDA from left to right. The back shows address pads labelled
   0x78 and 0x7A, and chip resistors and capacitors printed R5, R6, R7, R10 and C1 to C9 (values not legible).
   The board is marked "HW-239", but the DISP1 row above says QWORK, so confirm the photos match the ordered module.
-- [ ] **Pin order as printed on the module** (no photo in the log yet; see the listing photos above)
-- [ ] Works at 3.3 V on the breadboard
-- [ ] I2C address (0x3C or 0x3D). SSD1306 §8.1.5 (page TBD): 7-bit `0111100` (0x3C) or `0111101` (0x3D), chosen by the SA0 bit, which the D/C# pin provides. Write address 0x78 / 0x7A. Confirm which pad is bridged on the module.
-- [ ] On-board pull-ups? (with power off, measure the resistance SDA→VCC and SCL→VCC). SSD1306 §8.1.5 (page TBD) says SDA and SCL must both be connected to pull-up resistors. If the module has none, we add them on our board, with values from the datasheet's I2C timing, not from memory. The RP2040's internal pulls (50 to 80 kΩ, RP2040 datasheet Table 625, p. 616) are not a substitute: §4.3 (p. 441) says external pull-ups should be on the board, because the internal ones may not be strong enough.
+- Received module (owner's photos, 2026-11-04): back marked **HW-239**, the same board as in the listing photos.
+  Address-select resistor on the 0x78 pads, 0x7A pads empty (as far as the photo shows). R5–R10 appear to read
+  "472" (4.7 kΩ) in the photo; which nets they sit on is not visible. Regulator U2 (SOT-23): marking not legible, TBD.
+- [x] **Pin order as printed on the module:** VCC, GND, SCL, SDA, left to right from the front, header at the top
+  (owner's photo, 2026-11-04). Matches schematic DISP1/J1 pins 1–4.
+- [x] Works on a bench test, at **5 V** VCC: Pro Micro (ATmega32U4, 5 V/16 MHz, enumerates as Arduino Leonardo),
+  sketch `firmware/bench/oled_test_promicro/`, SDA → D2, SCL → D3. Pings ACK every second, 0 NACKs (serial log,
+  2026-11-04). Picture clean, box visible on all four edges, no sideways shift (owner, 2026-11-04): consistent with
+  an SSD1306 driving a 128×64 panel. Animation demo `firmware/bench/oled_demo_promicro/` runs at about 17 fps (UI
+  mock-up) to 25 fps (simple scenes) at the library's 400 kHz I2C (serial log, 2026-11-04).
+- [ ] Works at 3.3 V on the breadboard (step 04, RP2040-Zero)
+- [x] I2C address: **0x3C** (7-bit), found by the I2C scan and pinged every second (serial log, 2026-11-04). Agrees with
+  the resistor on the 0x78 pads (0x78 = 0x3C × 2, the 8-bit write address). Background: (0x3C or 0x3D). SSD1306 §8.1.5 (page TBD): 7-bit `0111100` (0x3C) or `0111101` (0x3D), chosen by the SA0 bit, which the D/C# pin provides. Write address 0x78 / 0x7A. Confirm which pad is bridged on the module.
+- [x] On-board pull-ups: **yes, functional evidence** (2026-11-04). With the AVR's internal pull-ups switched off after
+  init (`DISABLE_INTERNAL_PULLUPS 1`), the OLED still ACKed every ping, 0 NACKs. Something on the bus holds SDA/SCL
+  high; the module is the likely source. The owner found no resistors on the Pro Micro's D2/D3 (visual, 2026-11-04),
+  so the module is the only source. Value and rail (VCC pin or U2 output) not measured: no multimeter yet. Photo suggests 4.7 kΩ.
+  Original check, still the way to get the value: (with power off, measure the resistance SDA→VCC and SCL→VCC). SSD1306 §8.1.5 (page TBD) says SDA and SCL must both be connected to pull-up resistors. If the module has none, we add them on our board, with values from the datasheet's I2C timing, not from memory. The RP2040's internal pulls (50 to 80 kΩ, RP2040 datasheet Table 625, p. 616) are not a substitute: §4.3 (p. 441) says external pull-ups should be on the board, because the internal ones may not be strong enough.
   Sources: NXP UM10204 Rev 7.0, Table 10 (p. 44 of 62: tr max 1000 ns Standard, 300 ns Fast, 120 ns Fast-mode Plus; Cb max 400 pF), §7.1 (p. 50 of 62), example (p. 52 of 62). Equation images were not extracted from the PDF text, so check the formulas by hand. RP2040 datasheet Table 625 (p. 616) and §4.3 (p. 441).
   External pull-up value: **TBD**. Inputs so far: Rp(min) ≈ 0.97 kΩ at VDD 3.3 V (UM10204 p. 52 of 62, VOL 0.4 V at 3 mA); Rp(max) = tr / (0.8473 × Cb) (p. 50 of 62), with Fast-mode tr max 300 ns (p. 44 of 62). Still needed: the bus capacitance Cb (measure it), the SSD1306's own tr limit (its I2C timing table, page TBD), and whether the module's pulls sit in parallel with ours.
 - Second listing photo (owner, 2026-10-30): front header again VCC, GND, SCL, SDA left to right, VCC on the square
@@ -215,7 +259,7 @@ The pin pattern and pin hole agree with the drawing; the tab slots don't (left a
   choice (2026-10-31), the one exception to "every footprint in `minipad.pretty`", until our own OLED footprint
   replaces it.
 - **Mounting holes: undecided** (owner, 2026-10-30). Options in `mechanical.md`, Q7 inputs.
-- [ ] Module's male pins: present or loose in the bag? Solder them to the module first if loose
+- [x] Module's male pins: already soldered to the module, plastic spacer on the back (owner's photo, 2026-11-04)
 - [ ] Header pitch 2.54 mm and pin diameter (calipers), to confirm the 1.0 mm drill
 - [ ] Module outline, header position, mounting holes (diameter, spacing), for our own footprint and the case
 - [ ] Glass top height above the PCB when mounted on the header (→ `mechanical.md`)
@@ -223,7 +267,17 @@ The pin pattern and pin hole agree with the drawing; the tab slots don't (left a
 ## Measurements
 | Part | Item | Value | Method | Date | By |
 |---|---|---|---|---|---|
-| | | | | | |
+| ENC1–ENC2 | Pin and tab spacing vs footprint | "match" (no numbers recorded) | Ruler | 2026-11-04 | Owner |
+| ENC1–ENC2 | Pin shape | Flat blades, not round | Photo | 2026-11-04 | Owner |
+| ENC1 | Rotation and push switch | Work (details not recorded) | Pro Micro bench sketch | 2026-11-05 | Owner |
+| DISP1 | Pin order | VCC, GND, SCL, SDA (front, left to right) | Photo | 2026-11-04 | Owner |
+| DISP1 | I2C address | 0x3C (7-bit) | I2C scan, Pro Micro bench sketch | 2026-11-04 | Claude (serial log), owner wired |
+| DISP1 | On-board pull-ups | Present (value TBD) | Bus works with AVR internal pull-ups off, 0 NACKs | 2026-11-04 | Claude (serial log), owner wired |
+| U1 | PCB outline, length × width (USB-C overhang **not** included) | 23 × 18 mm, ±0.5 mm (drawing: 23.50 × 18.00 mm; no conflict within ruler resolution) | Ruler | 2026-11-08 | Owner |
+| U1 | Bottom-edge holes (opposite USB-C) | 5 present (spacing not measured) | Visual count | 2026-11-08 | Owner |
+| U1 | Bootloader | `UF2 Bootloader v3.0`, Model `Raspberry Pi RP2`, Board-ID `RPI-RP2` | `INFO_UF2.TXT` on the `RPI-RP2` drive | 2026-11-11 | Owner |
+| D1 | Brightness from GPIO (GP9, 220 Ω, full duty, bare LED) | "Very bright", afterimage when stared at (qualitative) | Eye, QMK firmware | 2026-11-11 | Owner |
+| ENC1 | Push switch on RP2040 (as K1 on GP2) | One press = one `a` | QMK firmware, Notepad | 2026-11-11 | Owner |
 
 ## Rejected parts (don't re-suggest without new information)
 | Part | Why rejected | Date | ADR |

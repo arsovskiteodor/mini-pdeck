@@ -19,7 +19,7 @@ the schematic and `firmware/qmk/minipad/keyboard.json` together (CLAUDE.md, rule
 |---|---|---|---|---|
 | OLED SDA | GP0 | ☐ | ☑ | ☐ |
 | OLED SCL | GP1 | ☐ | ☑ | ☐ |
-| K1 | GP2 | ☐ | ☑ | ☐ |
+| K1 | GP2 | ☑ | ☑ | ☑ |
 | K2 | GP3 | ☐ | ☑ | ☐ |
 | K3 | GP4 | ☐ | ☑ | ☐ |
 | K4 | GP5 | ☐ | ☑ | ☐ |
@@ -30,7 +30,7 @@ the schematic and `firmware/qmk/minipad/keyboard.json` together (CLAUDE.md, rule
 | ENC2 B | GP27 | ☐ | ☑ | ☐ |
 | ENC2 push | GP28 | ☐ | ☑ | ☐ |
 | Onboard RGB LED | GP16 (fixed) | — | — | ☐ |
-| LED1 (under K1) | GP9 | ☐ | ☑ | ☐ |
+| LED1 (under K1) | GP9 | ☑ | ☑ | ☐ |
 | LED2 (under K2) | GP10 | ☐ | ☑ | ☐ |
 | LED3 (under K3) | GP11 | ☐ | ☑ | ☐ |
 | LED4 (under K4) | GP12 | ☐ | ☑ | ☐ |
@@ -50,3 +50,4 @@ so every pin assigned above is an edge pin. Confirm on the received clone (`part
 | 2026-10-28 | Draft created | Breadboard starting point |
 | 2026-10-30 | LED1–LED4 on GP9–GP12 (candidate) | Draft schematic has 4 per-key LEDs; owner asked for edge pins only |
 | 2026-10-30 | Schematic ✔ ticked for all 16 assigned pins | Netlist exported with `kicad-cli` matches this table; ERC 0 errors. Schematic is a draft until step 04 |
+| 2026-11-11 | Breadboard ✔ GP2 (K1) and GP9 (LED1); Firmware ✔ GP2 | Reported by owner, 2026-11-11: GP2 reads a switch (ENC1 push wired as K1) in QMK, `matrix_pins.direct`; GP9 drives LED1 through 220 Ω, steady and with hardware PWM (slice 4, channel B). GP9 firmware ✔ waits for the key-LED behaviour (Q15): the current QMK backlight config drives only GP9 |

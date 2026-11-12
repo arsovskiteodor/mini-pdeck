@@ -12,19 +12,24 @@ External Userspace documentation only covers keymaps for keyboards QMK already h
 
 ## Create the keyboard (step 04)
 1. Check the name is free: `ls ~/qmk_firmware/keyboards/minipad` should not exist.
-2. Run `qmk new-keyboard`: name `minipad`, MCU **RP2040**, layout "none".
-3. Move the generated folder into this repo, then link it back:
+2. Write `keyboard.json` and `keymaps/default/keymap.c` by hand in `firmware/qmk/minipad/`
+   (owner, 2026-11-11). `qmk new-keyboard` was not used: its template has AVR pins and a diode matrix,
+   which would all need rewriting for an RP2040 with direct pins.
+3. Link the folder into QMK:
    - macOS / Linux:
      ```sh
-     mv ~/qmk_firmware/keyboards/minipad firmware/qmk/minipad
      ln -s "$PWD/firmware/qmk/minipad" ~/qmk_firmware/keyboards/minipad
      ```
    - Windows (Command Prompt, not QMK MSYS): create a directory junction:
      ```bat
      mklink /J %USERPROFILE%\qmk_firmware\keyboards\minipad C:\path\to\repo\firmware\qmk\minipad
      ```
-4. Build: `qmk compile -kb minipad -km default`. The `.uf2` file appears in `qmk_firmware/`.
-5. Flash: hold BOOT, plug in, and drag the `.uf2` onto the `RPI-RP2` drive (or run `qmk flash`).
+4. Build: from the repo root, `wsl bash firmware/build.sh` (or `bash firmware/build.sh` inside WSL).
+   It runs `qmk compile -kb minipad -km default` in WSL and copies the result to
+   `firmware/out/minipad_default.uf2` (ignored by git). QMK is installed in WSL (Ubuntu), not QMK MSYS:
+   on this PC Windows refuses to start QMK MSYS's `collect2.exe` and `git.exe` ("Permission denied",
+   2026-11-11, cause not yet found).
+5. Flash: hold BOOT, plug in, and drag the `.uf2` onto the `RPI-RP2` drive.
 
 ## Configuration notes
 - Pins come from `docs/hardware/pinout.md`. Don't invent them here.

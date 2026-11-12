@@ -1,0 +1,38 @@
+{
+    "manufacturer": "DIY",
+    "keyboard_name": "minipad",
+    "maintainer": "arsovskiteodor",
+    "processor": "RP2040",
+    "bootloader": "rp2040",
+    "usb": {
+        "vid": "0xFEED",
+        "pid": "0x0000",
+        "device_version": "0.0.1"
+    },
+    "features": {
+        "backlight": true,
+        "bootmagic": true
+    },
+    "backlight": {
+        "driver": "pwm",
+        "pin": "GP9",
+        "breathing": true,
+        "breathing_period": 2,
+        "default": {
+            "on": true,
+            "breathing": true
+        }
+    },
+    "matrix_pins": {
+        "direct": [
+            ["GP2"]
+        ]
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label": "K1", "x": 0, "y": 0, "matrix": [0, 0]}
+            ]
+        }
+    }
+}

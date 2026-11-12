@@ -20,6 +20,7 @@ hardware/kicad/production/
 *.hex
 *.bin
 .build/
+firmware/out/
 
 # --- Datasheets: keep links in docs/hardware/datasheets/README.md, not the PDFs ---
 docs/hardware/datasheets/*.pdf
