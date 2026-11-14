@@ -385,15 +385,15 @@
 		(uuid "e4806ec9-285f-4aec-99da-67ca111daa66")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/lib/3d/Bourns_PEC11R-4220F-S0024.step"
+	(model "${KIPRJMOD}/lib/3d/Bourns_PEC11L-4115F-S0020.step"
 		(offset
-			(xyz 7.5 -2.5 0)
+			(xyz 7.5 -2.5 12)
 		)
 		(scale
 			(xyz 1 1 1)
 		)
 		(rotate
-			(xyz -0 -0 90)
+			(xyz 90 0 90)
 		)
 	)
 )

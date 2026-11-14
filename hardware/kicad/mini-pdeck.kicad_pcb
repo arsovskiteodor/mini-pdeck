@@ -1447,15 +1447,15 @@
 			(uuid "1de1e5a9-3a45-4765-8f8a-dc541c1a4f61")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/lib/3d/Bourns_PEC11R-4220F-S0024.step"
+		(model "${KIPRJMOD}/lib/3d/Bourns_PEC11L-4115F-S0020.step"
 			(offset
-				(xyz 7.5 -2.5 0)
+				(xyz 7.5 -2.5 12)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz -0 -0 90)
+				(xyz 90 0 90)
 			)
 		)
 	)
@@ -3500,15 +3500,15 @@
 			(uuid "37ec729b-5cc6-4ef1-a630-2e67b4b63077")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/lib/3d/Bourns_PEC11R-4220F-S0024.step"
+		(model "${KIPRJMOD}/lib/3d/Bourns_PEC11L-4115F-S0020.step"
 			(offset
-				(xyz 7.5 -2.5 0)
+				(xyz 7.5 -2.5 12)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz -0 -0 90)
+				(xyz 90 0 90)
 			)
 		)
 	)
