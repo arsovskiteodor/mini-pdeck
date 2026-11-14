@@ -31,6 +31,18 @@ External Userspace documentation only covers keymaps for keyboards QMK already h
    2026-11-11, cause not yet found).
 5. Flash: hold BOOT, plug in, and drag the `.uf2` onto the `RPI-RP2` drive.
 
+## QMK version
+Our files are the only project files: `~/qmk_firmware/keyboards/minipad` in WSL is a symlink to
+`firmware/qmk/minipad/` in this repo (checked 2026-11-14), and the rest of `~/qmk_firmware` is QMK's own code.
+To rebuild exactly what was flashed, use the same QMK commit.
+
+| Date | QMK commit | What was built |
+|---|---|---|
+| 2026-11-14 | `d194c077ed` (`0.34.7-3-gd194c077ed`, master, commit date 2026-11-08) | K1–K4 a–d, OLED status screen, breathing D1–D4. Works on Rev A (owner, 2026-11-14) |
+
+Check yours with `git -C ~/qmk_firmware describe --tags`. Go back to a listed commit with
+`git -C ~/qmk_firmware checkout <commit> && qmk git-submodule`.
+
 ## Configuration notes
 - Pins come from `docs/hardware/pinout.md`. Don't invent them here.
 - Prefer data-driven config in `keyboard.json` (`matrix_pins.direct`, `encoder.rotary`, features).

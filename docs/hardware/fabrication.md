@@ -70,4 +70,4 @@ Generated into `hardware/kicad/production/` (gitignored):
 ## Order history
 | Rev | Date | Tag / commit | Qty | Cost (boards + shipping) | Notes |
 |---|---|---|---|---|---|
-| A | 2026-11-03 (17:50, PCBWay time as shown) | TBD: commit not recorded, no `rev-a` tag | 5 | $11.91 order total, boards $6.50 (breakdown not shown in the order screenshot) | PCBWay order YR1841165, product W1173661ASX3, file `mini-pdeck-rev-a-gerbers.zip`. Status "In fabrication", 17%, on the screenshot of 2026-11-04. Ordered before step 10 checks (ADR-0011, ADR-0012). |
+| A | 2026-11-03 (17:50, PCBWay time as shown) | TBD: commit not recorded, no `rev-a` tag | 5 | $11.91 order total, boards $6.50 (breakdown not shown in the order screenshot) | PCBWay order YR1841165, product W1173661ASX3, file `mini-pdeck-rev-a-gerbers.zip`. Status "In fabrication", 17%, on the screenshot of 2026-11-04. Ordered before step 10 checks (ADR-0011, ADR-0012). **Arrived 2026-11-13** (owner). Assembled 2026-11-14 except ENC1–ENC2; keys, LEDs and OLED work (owner, log 2026-11-14). |
