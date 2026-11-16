@@ -9,7 +9,7 @@ A footprint may only be finalised from a `verified` part.
 |---|---|---|---|---|---|---|
 | U1 | RP2040-Zero clone (DUBEUYEW), USB-C, 2 MB flash | 1 / 2 | Amazon | €9.99 (2) | arrived 2026-11-08 (owner) | [0001](../decisions/0001-mcu-rp2040-zero-module.md) |
 | SW1–SW4 | Gateron KS-33 Low Profile 2.0 Red Silent, linear, 45 gf | 4 / 35 | Amazon | €15.26 (35) | arrived (date not reported); soldered on Rev A 2026-11-14 (owner). `/check-part` (arrived) not run | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
-| — | Low-profile keycaps, KS-33 compatible: **model TBD (STATUS Q8)** | 4 / TBD | TBD | TBD | TBD | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
+| — | Keycaps: **LQXQ 143 Low Profile Keycaps, PBT, Shine Through, Black/Blue/White** (ASIN B0H1C8RZP7). Listing says "with Gateron MX Switches", not KS-33: fit on the KS-33 not confirmed (STATUS Q8). Details: "Keycaps" below | 4 / 143 | Amazon.es, https://www.amazon.es/dp/B0H1C8RZP7 | TBD | ordered 2026-11-16 (owner), expected TBD | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
 | ENC1–ENC2 | **Bourns PEC11L-4115F-S0020** (2026-11-13): low-profile 11 mm encoder, push switch, 20 detents / 20 PPR, 6 mm flatted shaft 15 mm long. Shaft top about 19.6 mm above the PCB (3D model, not measured). EC11 pin pattern; tabs fit the Rev A slots per the 3D model (test-fit). Details: "Candidate replacement" below | 2 / 6 | Farnell, order code 4014824 | €2.34 each excl. VAT; order €31.50 incl. €11.99 delivery and VAT | ordered 2026-11-13 (owner), expected 2026-11-18 | [0013](../decisions/0013-encoders-bourns-pec11l-4115f.md) |
 | — | Knobs for the PEC11L: 6 mm D-shaft, 4.5 mm across the flat (datasheet p. 2). Low profile; bore depth no more than the shaft above the bushing (L − B = 10 mm). The included EC11 knobs don't fit (knurled) | 2 / 0 | TBD | TBD | not bought | [0013](../decisions/0013-encoders-bourns-pec11l-4115f.md) |
 | (spare) | Generic EC11, push switch, 20 steps/turn, 6 mm knurled shaft 20 mm, knobs included (Xatgiouy). Was ENC1–ENC2 until 2026-11-13; kept for the breadboard | 0 / 5 | Amazon | €7.99 (5) | arrived 2026-11-04 (owner) | [0003](../decisions/0003-encoders-ec11-with-push.md) |
@@ -108,6 +108,11 @@ Gateron drawing DS-02-001-A0, item KS-33H10B050NN-Y24, Rev 2, 2023-01-03, PDF p.
   another colour) shows only a rounded "pill" about half the switch width, with the "+". Treat the model's stem
   and top as approximate. Pins, post, outline and footprint are not affected; keycap fit and height are measured
   on arrival.
+- **Visible model since 2026-11-16 (owner's request):** a third-party FreeCAD model,
+  `lib/3d/Gateron_KS-33_v3_FreeCAD.step` (source and licence TBD, `datasheets/README.md`), offset (0, 0, +2.5) mm,
+  no rotation. The official model above stays in the footprint, hidden. The FreeCAD model is simplified: pin 2
+  sits at Y = 5.375 mm instead of 5.75 mm and is a flat blade, not round; stem top 9.55 mm above the PCB vs 8.90 mm
+  (log 2026-11-16). Use it for renders only; the numbers below come from the official model.
 - **From the 3D model, not measured** (Z = 0 is the PCB top, after the −3.25 mm offset): the switch stands on
   four corner feet; the housing base is 0.30 mm above the PCB; the top is 8.90 mm above the PCB. The centre post
   reaches 3.25 mm below the PCB top, and the terminal tips about 2.5 to 2.65 mm below. With a 1.6 mm PCB that is
@@ -118,6 +123,31 @@ Gateron drawing DS-02-001-A0, item KS-33H10B050NN-Y24, Rev 2, 2023-01-03, PDF p.
 - [ ] Centre post and terminal length below the PCB, with calipers (→ `mechanical.md`, underside row)
 - [ ] Keycap fits and the travel feels right
 - [ ] Height of keycap top above the PCB surface, switch seated (→ `mechanical.md`)
+
+### Keycaps: LQXQ low-profile PBT shine-through (ASIN B0H1C8RZP7)
+**Candidate check, 2026-11-16 (listing and seller photos only):**
+- **Listing claims:** low profile ("only half as tall as other keycaps"), double-shot PBT, shine-through (title),
+  fits "all key switches with a cruciform shaft", "with Gateron MX Switches (Not ISO Compatible)". 143 keys,
+  ANSI US. No dimensions given (width, height, skirt depth). KS-33 / Gateron Low Profile 2.0 is not named.
+- **Seller photos:** shown on full-height MX switches. Underside photo: MX cross socket in a round boss;
+  translucent inner body inside a black outer shell (double-shot shine-through construction).
+- **Owner's switch photo (2026-11-16):** the KS-33 stem top is a round red disc with an MX "+", the "pill"
+  noted under SW1–SW4 above. The cap's cross socket matches it.
+- **Open risk:** the KS-33 has an MX-style stem, but "not every MX keycap will clear the switch housing without
+  collisions" (Keeb.io, https://blog.keeb.io/low-profile-keycap-options-what-works-with-what/). Whether this
+  cap's skirt clears the KS-33 housing at full travel (3.0 mm, Gateron drawing, see SW1–SW4) is unknown.
+  Bought as a test under Amazon.es's 30-day return (owner, 2026-11-16).
+- **Width:** unknown. Pitch is 19.1 mm (provisional, Q5), so a 1u cap up to about 19 mm fits.
+
+**Arrival checks (test on one key before fitting all four):**
+- [ ] Arrived: date, count, the 1u keys present
+- [ ] Cross socket goes onto the KS-33 stem pushed straight down, without forcing
+- [ ] Full travel: bottom-out with the cap feels the same as the bare switch (no earlier, harder or scratchy stop)
+- [ ] Side view at full press: visible gap between the cap's skirt and the switch housing
+- [ ] Shine-through: D1–D4 light the legends, not just a ring around the cap (QMK breathing firmware, dim room)
+- [ ] Width, with calipers (→ Q5); adjacent caps don't touch when pressed together at 19.1 mm pitch
+- [ ] Keycap top above the PCB, switch seated (→ `mechanical.md`, Q6; same item as under SW1–SW4)
+- [ ] Return deadline recorded if any check fails
 
 ### D1–D4: white 1206 LED (ADR-0009)
 **Candidate check, 2026-10-30:** Diotronic LSMD1206B, "LED SMD 1206 BLANCO 0.6CD 3.5V",
@@ -360,3 +390,4 @@ pins 5 mm apart, rows 7.5 + 7 = 14.5 mm. Heights are Claude's reading of the dra
 | TT EN11-HSM1AF15 | Tabs match the footprint exactly, but about 2 mm taller than the PEC11L; knurled EN11-HSM1AQ15 has no stock | 2026-11-13 | 0013 |
 | Same Sky ACZ11BR1E-15KQD1-20C | About 2 mm taller than the PEC11L; tabs 9.4 mm apart (ours 11.2 mm); 207 in stock | 2026-11-13 | 0013 |
 | PEC11L-4120F / -4125F | 20 / 25 mm shafts: only 2 mm lower than before, or taller | 2026-11-13 | 0013 |
+| LZH-LP 113-key doubleshot ABS keycaps, OEM profile (Amazon.es ASIN B0DG5RH2FK) | Full-height OEM profile for standard MX, not low profile; skirt may collide with the KS-33 housing; defeats the low-profile goal | 2026-11-16 | 0002 |

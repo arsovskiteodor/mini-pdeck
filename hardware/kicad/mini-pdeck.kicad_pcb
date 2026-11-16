@@ -135,7 +135,7 @@
 		(property "Reference" "SW3"
 			(at 6.8 -9.1 0)
 			(unlocked yes)
-			(layer "F.SilkS" knockout)
+			(layer "F.SilkS")
 			(uuid "a427737d-768b-4240-9cbb-00644fc54001")
 			(effects
 				(font
@@ -182,12 +182,6 @@
 		(path "/93c28bed-282f-458f-be7b-933a5fab43a1")
 		(sheetname "/")
 		(sheetfile "mini-pdeck.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -460,7 +454,19 @@
 			)
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Gateron_KS-33_v3_FreeCAD.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 		(model "${KIPRJMOD}/lib/3d/Gateron_KS-33_LP2.0_KS33-20230109.step"
+			(hide yes)
 			(offset
 				(xyz -60 0 -3.25)
 			)
@@ -704,7 +710,7 @@
 		(property "Reference" "SW4"
 			(at 6.5 -9.1 0)
 			(unlocked yes)
-			(layer "F.SilkS" knockout)
+			(layer "F.SilkS")
 			(uuid "0e0f4780-cfd6-4288-ad92-81d621881c4e")
 			(effects
 				(font
@@ -751,12 +757,6 @@
 		(path "/0c36b614-5a96-4321-8ed7-7db1fcf35c0f")
 		(sheetname "/")
 		(sheetfile "mini-pdeck.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1029,7 +1029,19 @@
 			)
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Gateron_KS-33_v3_FreeCAD.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 		(model "${KIPRJMOD}/lib/3d/Gateron_KS-33_LP2.0_KS33-20230109.step"
+			(hide yes)
 			(offset
 				(xyz -60 0 -3.25)
 			)
@@ -3742,7 +3754,7 @@
 		(property "Reference" "SW1"
 			(at 6.8 -9.1 0)
 			(unlocked yes)
-			(layer "F.SilkS" knockout)
+			(layer "F.SilkS")
 			(uuid "1dfb35e1-54ed-418a-ba14-32784f8d45bd")
 			(effects
 				(font
@@ -3789,12 +3801,6 @@
 		(path "/b4ae3ad5-e5f4-4b21-93b4-eeb3e074b3b8")
 		(sheetname "/")
 		(sheetfile "mini-pdeck.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4067,7 +4073,19 @@
 			)
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Gateron_KS-33_v3_FreeCAD.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 		(model "${KIPRJMOD}/lib/3d/Gateron_KS-33_LP2.0_KS33-20230109.step"
+			(hide yes)
 			(offset
 				(xyz -60 0 -3.25)
 			)
@@ -4088,7 +4106,7 @@
 		(property "Reference" "SW2"
 			(at 6.7 -9.1 0)
 			(unlocked yes)
-			(layer "F.SilkS" knockout)
+			(layer "F.SilkS")
 			(uuid "2a3ccb25-ec63-4e88-855e-65c438f52c43")
 			(effects
 				(font
@@ -4135,12 +4153,6 @@
 		(path "/2aa203e8-7d85-4dd5-b45d-e63f62efa0bb")
 		(sheetname "/")
 		(sheetfile "mini-pdeck.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4413,15 +4425,27 @@
 			)
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/lib/3d/Gateron_KS-33_LP2.0_KS33-20230109.step"
+		(model "${KIPRJMOD}/lib/3d/Gateron_KS-33_v3_FreeCAD.step"
 			(offset
-				(xyz -60 0 -2.75)
+				(xyz 0 0 2.5)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz -0 -0 -0)
+				(xyz 0 0 0)
+			)
+		)
+		(model "${KIPRJMOD}/lib/3d/Gateron_KS-33_LP2.0_KS33-20230109.step"
+			(hide yes)
+			(offset
+				(xyz -60 0 -3.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
 			)
 		)
 	)
