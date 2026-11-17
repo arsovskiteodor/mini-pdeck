@@ -1,6 +1,6 @@
 # ADR-0003: Encoders: generic EC11 with push switch, 20 detents
 
-- **Status:** Accepted
+- **Status:** Superseded by ADR-0013
 - **Date:** 2026-10-28
 - **Step:** 01 Lock the spec
 

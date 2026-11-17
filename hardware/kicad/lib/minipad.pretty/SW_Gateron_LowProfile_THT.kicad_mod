@@ -89,7 +89,12 @@
       fce07566-760e-4caf-bfeb-b80d2e1a119d
     )
   )
-  (model "${KIPRJMOD}/lib/3d/Gateron_KS-33_LP2.0_KS33-20230109.step"
+  (model "${KIPRJMOD}/lib/3d/Gateron_KS-33_v3_FreeCAD.step"
+    (offset (xyz 0 0 2.5))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
+  (model "${KIPRJMOD}/lib/3d/Gateron_KS-33_LP2.0_KS33-20230109.step" hide
     (offset (xyz -60 0 -3.25))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))

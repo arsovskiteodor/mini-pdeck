@@ -7,7 +7,7 @@ Every number here is either **measured** (with date) or **TBD**. Nothing comes f
 |---|---|---|
 | PCB thickness | 1.6 | Fab setting (ADR-0009) |
 | Keycap top, switch seated | TBD | Measure (parts.md) |
-| Encoder shaft top | TBD (listing: 20 mm shaft) | Measure |
+| Encoder shaft top | TBD. PEC11L-4115F-S0020 3D model: 19.6 (`parts.md`, ENC1–ENC2); replaced EC11 listing: 20 mm shaft | Measure the received part |
 | Knob top | TBD | Measure |
 | OLED glass top, module header soldered into the board | TBD | Measure (header spacer + module) |
 | RP2040-Zero top incl. USB-C (flat mount) | TBD | Measure |

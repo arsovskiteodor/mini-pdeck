@@ -1,46 +1,48 @@
 # Status
 
-**Updated:** 2026-11-11 · **Phase:** 2, Prototype · **Step:** 04, Breadboard and flash firmware (first `minipad` firmware runs; 2 of 16 pins proven). Step 03 still open (switches expected 2026-11-12; keycaps TBD). Rev A ordered (step 12, early under ADR-0011)
+**Updated:** 2026-11-16 · **Phase:** 2, Prototype · **Step:** 04, Breadboard and flash firmware (10 of 16 pins proven, on the assembled Rev A board; only the 6 encoder pins left). Rev A arrived 2026-11-13 and is assembled except ENC1–ENC2 (step 13 started early under ADR-0011). Step 03 still open: PEC11L encoders expected 2026-11-18 (ADR-0013); keycaps ordered 2026-11-16 (Q8); D-shaft knobs TBD
 
 ## Next actions
-1. Owner: when the switches arrive (expected 2026-11-12), `/check-part` them. Then compare 220/330/470 Ω under one switch at full duty (breathing off) to choose R3–R6 (log 2026-11-11).
-2. Owner: wire ENC1 fully (A → GP6, B → GP7, C → GND, push → GP8). Claude then adds the encoder to `keyboard.json` (turn = volume, push = mute): direction and steps per detent come from that test, in place of the Pro Micro numbers asked for on 2026-11-05. Then the second encoder and K2–K4.
-3. Then the OLED on GP0/GP1 at 3.3 V without external pull-ups (I2C in `halconf.h`/`mcuconf.h`): settles Q2 and Q9.
-4. Owner: Windows Security checks for the blocked QMK MSYS `collect2.exe`/`git.exe` (log 2026-11-11). OK for Claude to regenerate the Gerbers from `a389c1f` in a scratch worktree and compare them with the ordered zip (log 2026-11-05), then record the commit in `fabrication.md` and tag `rev-a`; say whether Rev A has any bottom-silkscreen marking.
-5. Owner decisions: the basis for "no external pull-ups" (Q9) and whether it needs an ADR; the ADR-0011 phase-file question (`docs/phases/04-order-build.md`), the ADR-0009 reference in `.claude/rules/hardware.md`, and whether `main` (one unrelated commit) should get the history from `parts`. Later: keycap model (Q8), then key pitch (Q5); Q1 ADR; Q15; step 07 prep.
+1. Before committing the board: restore `knockout` on the SW1–SW4 reference labels (lost in the 2026-11-16 Update Footprint), or `git restore` the board and redo the update with only reset-3D-models ticked (log 2026-11-16).
+2. Before the PEC11L arrives (expected 2026-11-18): Claude prepares the encoder firmware in `keyboard.json` (turn = volume, push = mute; `resolution` from the PEC11L datasheet p. 1). On arrival: `/check-part` (arrived), test-fit unsoldered (Q16), solder ENC1–ENC2 (datasheet p. 1: hand soldering "not recommended", keep it short), owner tests step 04's last 6 pins (GP6–GP8, GP26–GP28).
+3. Keycaps: owner reports price and delivery date; on arrival, the one-key fit test first (`parts.md`, Keycaps arrival checks; 30-day return).
+4. Owner: `/check-part` the switches (record the arrival date); say which end of each LED (green mark or not) went on pad 1 (`parts.md`, D1–D4); choose D-shaft knobs for the PEC11L (6 mm, 4.5 mm across the flat, bore no deeper than 10 mm, low; `parts.md`, ADR-0013).
+5. Housekeeping:
+   - Add the download links for the Waveshare, SamacSys and FreeCAD KS-33 models to `datasheets/README.md`.
+   - Gerbers from `a389c1f` and the `rev-a` tag (log 2026-11-05).
+   - Owner decisions from log 2026-11-11: ADR-0011 phase file, the ADR-0009 reference in `.claude/rules/hardware.md`, `main` history. Windows Security check for QMK MSYS.
+   - Later: Q8 → Q5, Q1 ADR, Q15, Q13, step 07 prep.
 
 ## Blockers
-- No multimeter or calipers recorded (owner, 2026-11-04; nothing new 2026-11-11). Q12's Vf number needs a multimeter.
+- No multimeter or calipers recorded (owner, 2026-11-04; nothing new 2026-11-14). Q12's Vf number needs a multimeter.
 - Rev A's Gerber commit not confirmed (candidate `a389c1f`, log 2026-11-05). No `rev-a` tag.
 
 ## Open questions
 | ID | Question | Needed by | How it gets settled |
 |---|---|---|---|
-| Q2 | Final I2C pins for the OLED | Step 06 | Breadboard test (step 04) |
 | Q5 | Key pitch for the chosen low-profile keycaps | Step 08 | 19.1 mm provisional (owner, 2026-11-01, `mechanical.md`); confirm with the keycap drawing or a measurement. Depends on Q8 |
-| Q6 | Knob height vs keycap height | Step 08 | Stack-up in `mechanical.md` (encoder model: shaft top 26.6 mm above the PCB) |
+| Q6 | Knob height vs keycap height | Step 08 | Stack-up in `mechanical.md`. PEC11L model: shaft top 19.6 mm above the PCB (ADR-0013); depends on the D-shaft knob and the keycaps (Q8) |
 | Q7 | Case approach, including OLED support (board mounting holes settled: ADR-0010) | Step 08 | ADR. Inputs: `mechanical.md`, "Inputs for the case decision" |
-| Q8 | Exact keycap model and link | Now | Owner fills in `parts.md` |
-| Q9 | External I2C pull-ups (2.2 kΩ, 4.7 kΩ or none). Owner, 2026-11-10: none needed, settled in an earlier session; no record found. On file: module pull-ups work on the 5 V Pro Micro (2026-11-04) | Step 06 | Owner points to the basis, or the RP2040 breadboard test (step 04) runs the OLED without them (log 2026-11-10) |
+| Q8 | Exact keycap model and link. Candidate ordered 2026-11-16: LQXQ low-profile PBT shine-through, ASIN B0H1C8RZP7 (sold for Gateron MX, not KS-33) | Now | Arrival checks pass (`parts.md`, Keycaps): fit on the KS-33 at full travel, shine-through, width |
 | Q11 | Step 05 heading still says "do the tutorial". Reword it? | Now | Owner decision (log 2026-10-29, Session 6) |
-| Q12 | White LED forward voltage. GPIO drive answered: very bright from GP9 through 220 Ω (owner, 2026-11-11), so no 5 V + transistor needed for brightness | Step 13 | Multimeter: V across the LED and the resistor (`parts.md`, D1–D4) |
-| Q13 | `docs/phases/03-design.md` step 06 says "optional 4.7 kΩ" pull-ups; Q9 may pick 2.2 kΩ. Reword to "value from Q9"? | Step 06 | Owner agreement (phase file change, log 2026-10-30) |
-| Q14 | Do the EC11's flat blade pins (diagonal) pass the Rev A pad drill (1.2 mm)? | Step 07 | Test-fit on the Rev A board before soldering, or calipers (`parts.md`, ENC1–ENC2) |
-| Q15 | How do the four key LEDs behave (together or per key; steady, breathing, reacting to keys) and what drives them in QMK (backlight `timer` driver for several pins, or own PWM code)? Hardware allows either: GP9–GP12 are PWM slices 4B, 5A, 5B, 6A | Step 13 (firmware) | Owner decision; `/decision` if it shapes the firmware (log 2026-11-11) |
+| Q12 | White LED forward voltage. R3–R6 = 220 Ω fitted on Rev A; all four LEDs light and breathe (owner, 2026-11-14) | Rev B | Multimeter: V across the LED and the resistor (`parts.md`, D1–D4) |
+| Q13 | `docs/phases/03-design.md` step 06 says "optional 4.7 kΩ" pull-ups. Q9 settled on none (log 2026-11-14). Reword to "not fitted (Q9)"? | Rev B | Owner agreement (phase file change, log 2026-10-30) |
+| Q15 | How do the four key LEDs behave (together or per key; steady, breathing, reacting to keys)? Driver answered: own PWM code on slices 4B, 5A, 5B, 6A, because QMK's multi-pin backlight drivers can't breathe on the RP2040 (log 2026-11-14). The sample breathes all four together | Step 13 (firmware) | Owner decision; `/decision` if it shapes the firmware |
+| Q16 | Do the PEC11L-4115F's pins (1.2 mm drills) and snap tabs (1.5 × 2.8 mm slots) enter the Rev A holes? The 3D model says yes, with the barbs flexing about 0.6 mm | Step 13 (assembly) | Test-fit unsoldered on Rev A when the parts arrive (`parts.md`, ENC1–ENC2 arrival checks; log 2026-11-13) |
 
 ## Steps
 - [x] 01 Lock the spec
 - [x] 02 Pick switches and mounting (footprint family fixed; soldered, Q1 answered, ADR pending)
-- [~] 03 Buy the parts (encoders and OLED arrived 2026-11-04, RP2040-Zero 2026-11-08, LEDs and resistors bought 2026-11-10, all owner; switches expected 2026-11-12; keycaps TBD)
-- [~] 04 Breadboard and flash firmware (2026-11-11, reported by owner: `minipad` firmware flashed; GP2 key and GP9 LED, steady and PWM, breadboard ✔; 14 pins left. Builds in WSL: `wsl bash firmware/build.sh`. Firmware not yet committed)
+- [~] 03 Buy the parts (OLED arrived 2026-11-04, RP2040-Zero 2026-11-08, LEDs and resistors bought 2026-11-10, switches arrived by 2026-11-14 (date not reported), all owner; encoders: 6 × PEC11L-4115F-S0020 ordered 2026-11-13 from Farnell, expected 2026-11-18 (ADR-0013), generic EC11s kept as spares; keycaps ordered 2026-11-16 (Amazon.es, Q8); D-shaft knobs TBD; `/check-part` arrived still missing for the switches)
+- [~] 04 Breadboard and flash firmware (2026-11-14, reported by owner, on Rev A: K1–K4 type a–d, D1–D4 breathe, OLED shows text; 10 of 16 pins ✔ in `pinout.md`, encoders left. Builds in WSL: `wsl bash firmware/build.sh`, QMK `d194c077ed`)
 - [x] 05 Install KiCad 10 and do the tutorial (gate passed 2026-10-29 under the narrowed criterion; log Session 5)
-- [~] 06 Draw the schematic (draft, ERC 0 errors, 1 warning: DISP1 `lib_symbol_mismatch`, fix pending owner; 2 of 16 pins breadboard-confirmed)
-- [ ] 07 Verify every footprint (candidates recorded in `parts.md`; needs the real parts; EC11 pad drills changed to 1.2 mm for Rev A, not measured)
+- [~] 06 Draw the schematic (draft, ERC 0 errors, 1 warning: DISP1 `lib_symbol_mismatch`, fix pending owner; 10 of 16 pins proven on Rev A)
+- [ ] 07 Verify every footprint (candidates recorded in `parts.md`; needs the real parts; encoder footprint now carries the PEC11L 3D model, pads unchanged, fit per the model only, Q16)
 - [~] 08 Place the parts (draft: 69.8 × 69.1 mm outline, M3 corner holes per ADR-0010; key pitch 19.1 mm provisional; footprints not yet verified)
 - [~] 09 Route and pour ground (draft: all nets routed on F.Cu, GND pour both layers, DRC clean 2026-10-31; will change after 07/08)
 - [~] 10 Run the pre-order checks (brought forward by ADR-0011; checklist in `fabrication.md` still open; Rev A ordered before it was run)
 - [ ] 11 Get a design review
-- [~] 12 Export and order (Rev A ordered 2026-11-03, PCBWay order YR1841165, ADR-0012; commit not confirmed)
-- [ ] 13 Assemble and test
+- [~] 12 Export and order (Rev A ordered 2026-11-03, PCBWay order YR1841165, arrived 2026-11-13, ADR-0012; commit not confirmed)
+- [~] 13 Assemble and test (Rev A assembled 2026-11-14 except ENC1–ENC2; keys, LEDs and OLED work, owner)
 
 Legend: `[x]` done · `[~]` in progress · `[ ]` not started. Exit criteria for each step are in `docs/phases/`.
