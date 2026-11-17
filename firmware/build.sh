@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Copyright 2026 Teodor Arsovski
+# SPDX-License-Identifier: GPL-2.0-or-later
+#
 # Build the minipad QMK firmware in WSL and copy the .uf2 into firmware/out/.
 #
 # From the repo root, in a Windows terminal (PowerShell):   wsl bash firmware/build.sh

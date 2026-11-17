@@ -39,3 +39,18 @@ hardware/kicad/
   These give you restore points.
 - Run ERC and DRC often, not just at the end.
 - Don't hand-edit `.kicad_sch` or `.kicad_pcb` text files. Make changes in KiCad.
+
+## Licences of library files
+The project's own design files are CERN-OHL-P-2.0 (`LICENSE.md` at the repo root). Library files copied
+from elsewhere keep their upstream licence. Full texts are in `LICENSES/`.
+
+| File | Upstream | Licence |
+|---|---|---|
+| `minipad.pretty/SW_Gateron_LowProfile_THT` | `siderakb/key-switches.pretty`, commit `e7dea70` (`parts.md`, SW1–SW4) | CERN-OHL-P-2.0 |
+| `minipad.pretty/MODULE_RP2040-ZERO` | SnapMagic RP2040-ZERO (`third_party/snapmagic-RP2040-ZERO/README.md`) | CC-BY-SA-4.0 with SnapMagic Design Exception 1.0 |
+| `minipad.pretty/LED_1206_…`, `R_Axial_…`, `PinHeader_1x04_…`, `RotaryEncoder_Alps_EC11E-…` | KiCad 10 stock libraries | CC-BY-SA-4.0 with the KiCad library exception (https://www.kicad.org/libraries/license/) |
+| `third_party/snapmagic-RP2040-ZERO/` | SnapMagic | CC-BY-SA-4.0 with Design Exception 1.0 |
+| `third_party/bobu01-RP2040-Zero-Kicad-Footprint-1mm/` | bobu01 on GitHub | GPL-3.0 (its own `LICENSE`) |
+
+Both exceptions say the same thing: a board design that *uses* these footprints is not bound by
+CC BY-SA, so the board can be CERN-OHL-P. The footprint files themselves stay CC BY-SA.

@@ -1,3 +1,6 @@
+// Copyright 2026 Teodor Arsovski
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 // OLED look-and-feel demo for the minipad (DISP1, HW-239, SSD1306 128x64) on a Pro Micro.
 // Not part of the macropad firmware: QMK has its own OLED API. Same panel, so the look is similar.
 // Wiring and libraries: see ../oled_test_promicro/oled_test_promicro.ino (SDA -> 2, SCL -> 3).

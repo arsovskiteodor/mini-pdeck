@@ -1,3 +1,6 @@
+// Copyright 2026 Teodor Arsovski
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 #pragma once
 
 // Include the base file FIRST: it sets every value unconditionally,

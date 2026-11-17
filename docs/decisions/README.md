@@ -26,3 +26,4 @@ what we picked and what that commits us to. Create a new one with `/decision <ti
 | [0011](0011-order-rev-a-before-parts-verification.md) | Order Rev A before the parts are verified | Accepted | 2026-11-01 |
 | [0012](0012-fab-pcbway-instead-of-jlcpcb.md) | Fab: PCBWay instead of JLCPCB (everything else as 0009) | Accepted | 2026-11-01 |
 | [0013](0013-encoders-bourns-pec11l-4115f.md) | Encoders: Bourns PEC11L-4115F-S0020 replaces the generic EC11 | Accepted | 2026-11-13 |
+| [0014](0014-licences.md) | Licences: CERN-OHL-P hardware, GPL-2.0-or-later firmware, CC-BY docs | Accepted | 2026-11-17 |
