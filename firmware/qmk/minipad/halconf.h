@@ -1,3 +1,6 @@
+// Copyright 2026 Teodor Arsovski
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 #pragma once
 
 // Compile the ChibiOS drivers we use. Defined BEFORE the include: QMK's base halconf.h

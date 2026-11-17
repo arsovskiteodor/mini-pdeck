@@ -1,3 +1,6 @@
+// Copyright 2026 Teodor Arsovski
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 // Bench test for the minipad OLED (DISP1, HW-239 module) on a Pro Micro (ATmega32U4).
 // Not part of the macropad firmware. It answers three things before step 04:
 //   - is the module alive (box + text on screen),

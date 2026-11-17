@@ -1,3 +1,6 @@
+// Copyright 2026 Teodor Arsovski
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 // EC11 encoder bench test for the minipad (ENC1-ENC2) on a Pro Micro, with the OLED as the display.
 // Not part of the macropad firmware. It answers what QMK needs to know about our clone encoder:
 //   - does A/B counting work, and which sign is clockwise (QMK: swap A and B if reversed),

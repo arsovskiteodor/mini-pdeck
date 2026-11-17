@@ -1,3 +1,6 @@
+// Copyright 2026 Teodor Arsovski
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 #pragma once
 
 // OLED (DISP1) on I2C0: SDA = GP0, SCL = GP1 (pinout.md).
