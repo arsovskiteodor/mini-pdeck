@@ -1,17 +1,18 @@
 # Status
 
-**Updated:** 2026-11-16 · **Phase:** 2, Prototype · **Step:** 04, Breadboard and flash firmware (10 of 16 pins proven, on the assembled Rev A board; only the 6 encoder pins left). Rev A arrived 2026-11-13 and is assembled except ENC1–ENC2 (step 13 started early under ADR-0011). Step 03 still open: PEC11L encoders expected 2026-11-18 (ADR-0013); keycaps ordered 2026-11-16 (Q8); D-shaft knobs TBD
+**Updated:** 2026-11-17 · **Phase:** 2, Prototype · **Step:** 04, Breadboard and flash firmware (10 of 16 pins proven, on the assembled Rev A board; only the 6 encoder pins left). Rev A arrived 2026-11-13 and is assembled except ENC1–ENC2 (step 13 started early under ADR-0011). Step 03 still open: PEC11L encoders expected 2026-11-18 (ADR-0013); keycaps ordered 2026-11-16 (Q8); D-shaft knobs TBD
 
 ## Next actions
-1. Before committing the board: restore `knockout` on the SW1–SW4 reference labels (lost in the 2026-11-16 Update Footprint), or `git restore` the board and redo the update with only reset-3D-models ticked (log 2026-11-16).
-2. Before the PEC11L arrives (expected 2026-11-18): Claude prepares the encoder firmware in `keyboard.json` (turn = volume, push = mute; `resolution` from the PEC11L datasheet p. 1). On arrival: `/check-part` (arrived), test-fit unsoldered (Q16), solder ENC1–ENC2 (datasheet p. 1: hand soldering "not recommended", keep it short), owner tests step 04's last 6 pins (GP6–GP8, GP26–GP28).
-3. Keycaps: owner reports price and delivery date; on arrival, the one-key fit test first (`parts.md`, Keycaps arrival checks; 30-day return).
-4. Owner: `/check-part` the switches (record the arrival date); say which end of each LED (green mark or not) went on pad 1 (`parts.md`, D1–D4); choose D-shaft knobs for the PEC11L (6 mm, 4.5 mm across the flat, bore no deeper than 10 mm, low; `parts.md`, ADR-0013).
+1. PEC11L (expected 2026-11-18): Claude first prepares the encoder firmware in `keyboard.json` (turn = volume, push = mute; `resolution` from the PEC11L datasheet p. 1). On arrival: `/check-part` (arrived), test-fit unsoldered (Q16), solder ENC1–ENC2 (datasheet p. 1: hand soldering "not recommended", keep it short), owner tests step 04's last 6 pins (GP6–GP8, GP26–GP28).
+2. Go public (log 2026-11-17): owner photographs Rev A with encoders (EXIF stripped, resized) into `docs/images/` and replaces the README placeholder; settles Q17; PR `dev` → `main`; makes the repo public; deletes the merged branches.
+3. Restore `knockout` on the SW1–SW4 reference labels in KiCad, then a new `hw:` commit (lost in the 2026-11-16 Update Footprint and committed in `a412114`; log 2026-11-17).
+4. Parts (owner): keycap price and delivery date, one-key fit test on arrival (`parts.md`, Keycaps; 30-day return); `/check-part` the switches; which end of each LED went on pad 1 (`parts.md`, D1–D4); D-shaft knobs (6 mm, 4.5 mm across the flat, bore ≤ 10 mm; `parts.md`, ADR-0013).
 5. Housekeeping:
-   - Add the download links for the Waveshare, SamacSys and FreeCAD KS-33 models to `datasheets/README.md`.
+   - `datasheets/README.md`: download links for the Waveshare, SamacSys and FreeCAD KS-33 models; SnapMagic original author (ADR-0014).
+   - `hardware/kicad/README.md`: out of date outside the licence table (log 2026-11-17).
    - Gerbers from `a389c1f` and the `rev-a` tag (log 2026-11-05).
-   - Owner decisions from log 2026-11-11: ADR-0011 phase file, the ADR-0009 reference in `.claude/rules/hardware.md`, `main` history. Windows Security check for QMK MSYS.
-   - Later: Q8 → Q5, Q1 ADR, Q15, Q13, step 07 prep.
+   - Owner decisions from log 2026-11-11: ADR-0011 phase file, the ADR-0009 reference in `.claude/rules/hardware.md`. Windows Security check for QMK MSYS.
+   - Later: Q8 → Q5, Q1 ADR, Q15, Q13, step 07 prep; CERN-OHL board marking (ADR-0014).
 
 ## Blockers
 - No multimeter or calipers recorded (owner, 2026-11-04; nothing new 2026-11-14). Q12's Vf number needs a multimeter.
@@ -29,6 +30,7 @@
 | Q13 | `docs/phases/03-design.md` step 06 says "optional 4.7 kΩ" pull-ups. Q9 settled on none (log 2026-11-14). Reword to "not fitted (Q9)"? | Rev B | Owner agreement (phase file change, log 2026-10-30) |
 | Q15 | How do the four key LEDs behave (together or per key; steady, breathing, reacting to keys)? Driver answered: own PWM code on slices 4B, 5A, 5B, 6A, because QMK's multi-pin backlight drivers can't breathe on the RP2040 (log 2026-11-14). The sample breathes all four together | Step 13 (firmware) | Owner decision; `/decision` if it shapes the firmware |
 | Q16 | Do the PEC11L-4115F's pins (1.2 mm drills) and snap tabs (1.5 × 2.8 mm slots) enter the Rev A holes? The 3D model says yes, with the barbs flexing about 0.6 mm | Step 13 (assembly) | Test-fit unsoldered on Rev A when the parts arrive (`parts.md`, ENC1–ENC2 arrival checks; log 2026-11-13) |
+| Q17 | Track `CLAUDE.md` in the public repo? It's gitignored since `67aaccb`, so visitors see `.claude/` but not the main instructions | Before going public | Owner decision; if yes, remove `CLAUDE*.md`/`claude*.md` from `.gitignore` and add it to the README layout (log 2026-11-17) |
 
 ## Steps
 - [x] 01 Lock the spec
