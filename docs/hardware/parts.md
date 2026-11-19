@@ -9,8 +9,8 @@ A footprint may only be finalised from a `verified` part.
 |---|---|---|---|---|---|---|
 | U1 | RP2040-Zero clone (DUBEUYEW), USB-C, 2 MB flash | 1 / 2 | Amazon | €9.99 (2) | arrived 2026-11-08 (owner) | [0001](../decisions/0001-mcu-rp2040-zero-module.md) |
 | SW1–SW4 | Gateron KS-33 Low Profile 2.0 Red Silent, linear, 45 gf | 4 / 35 | Amazon | €15.26 (35) | arrived (date not reported); soldered on Rev A 2026-11-14 (owner). `/check-part` (arrived) not run | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
-| — | Keycaps: **LQXQ 143 Low Profile Keycaps, PBT, Shine Through, Black/Blue/White** (ASIN B0H1C8RZP7). Listing says "with Gateron MX Switches", not KS-33: fit on the KS-33 not confirmed (STATUS Q8). Details: "Keycaps" below | 4 / 143 | Amazon.es, https://www.amazon.es/dp/B0H1C8RZP7 | TBD | ordered 2026-11-16 (owner), expected TBD | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
-| ENC1–ENC2 | **Bourns PEC11L-4115F-S0020** (2026-11-13): low-profile 11 mm encoder, push switch, 20 detents / 20 PPR, 6 mm flatted shaft 15 mm long. Shaft top about 19.6 mm above the PCB (3D model, not measured). EC11 pin pattern; tabs fit the Rev A slots per the 3D model (test-fit). Details: "Candidate replacement" below | 2 / 6 | Farnell, order code 4014824 | €2.34 each excl. VAT; order €31.50 incl. €11.99 delivery and VAT | ordered 2026-11-13 (owner), expected 2026-11-18 | [0013](../decisions/0013-encoders-bourns-pec11l-4115f.md) |
+| — | Keycaps: **LQXQ 143 Low Profile Keycaps, PBT, Shine Through, Black/Blue/White** (ASIN B0H1C8RZP7). Listing says "with Gateron MX Switches", not KS-33: fit on the KS-33 not confirmed (STATUS Q8). Details: "Keycaps" below | 4 / 143 | Amazon.es, https://www.amazon.es/dp/B0H1C8RZP7 | TBD | arrived by 2026-11-19 (date not reported), fitted on SW1–SW4 (owner, 2026-11-19); price TBD; fit checks partly open ("Keycaps" below) | [0002](../decisions/0002-switches-gateron-ks33-low-profile.md) |
+| ENC1–ENC2 | **Bourns PEC11L-4115F-S0020** (2026-11-13): low-profile 11 mm encoder, push switch, 20 detents / 20 PPR, 6 mm flatted shaft 15 mm long. Shaft top about 19.6 mm above the PCB (3D model, not measured). EC11 pin pattern; tabs fit the Rev A slots per the 3D model (test-fit). Details: "Candidate replacement" below | 2 / 6 | Farnell, order code 4014824 | €2.34 each excl. VAT; order €31.50 incl. €11.99 delivery and VAT | arrived by 2026-11-19 (date not reported); soldered on Rev A 2026-11-19; both turn and push correctly in QMK (owner). `/check-part` (arrived) not run | [0013](../decisions/0013-encoders-bourns-pec11l-4115f.md) |
 | — | Knobs for the PEC11L: 6 mm D-shaft, 4.5 mm across the flat (datasheet p. 2). Low profile; bore depth no more than the shaft above the bushing (L − B = 10 mm). The included EC11 knobs don't fit (knurled) | 2 / 0 | TBD | TBD | not bought | [0013](../decisions/0013-encoders-bourns-pec11l-4115f.md) |
 | (spare) | Generic EC11, push switch, 20 steps/turn, 6 mm knurled shaft 20 mm, knobs included (Xatgiouy). Was ENC1–ENC2 until 2026-11-13; kept for the breadboard | 0 / 5 | Amazon | €7.99 (5) | arrived 2026-11-04 (owner) | [0003](../decisions/0003-encoders-ec11-with-push.md) |
 | DISP1 | 0.96" OLED 128×64, SSD1306, I2C, 4-pin (QWORK; received board marked HW-239) | 1 / 3 | Amazon | €10.55 (3) | arrived 2026-11-04 (owner) | [0004](../decisions/0004-oled-ssd1306-i2c.md) |
@@ -140,11 +140,11 @@ Gateron drawing DS-02-001-A0, item KS-33H10B050NN-Y24, Rev 2, 2023-01-03, PDF p.
 - **Width:** unknown. Pitch is 19.1 mm (provisional, Q5), so a 1u cap up to about 19 mm fits.
 
 **Arrival checks (test on one key before fitting all four):**
-- [ ] Arrived: date, count, the 1u keys present
+- [~] Arrived: by 2026-11-19, 1u keys present and fitted on SW1–SW4 (owner); date and count not reported
 - [ ] Cross socket goes onto the KS-33 stem pushed straight down, without forcing
 - [ ] Full travel: bottom-out with the cap feels the same as the bare switch (no earlier, harder or scratchy stop)
 - [ ] Side view at full press: visible gap between the cap's skirt and the switch housing
-- [ ] Shine-through: D1–D4 light the legends, not just a ring around the cap (QMK breathing firmware, dim room)
+- [x] Shine-through: D1–D4 light the legends, not just a ring around the cap (QMK breathing firmware, dim room): legends lit in the owner's photo (`docs/images/rev-a-running.jpg`, 2026-11-19). The light looks blue in the photo; the LEDs are white, it's the camera (owner)
 - [ ] Width, with calipers (→ Q5); adjacent caps don't touch when pressed together at 19.1 mm pitch
 - [ ] Keycap top above the PCB, switch seated (→ `mechanical.md`, Q6; same item as under SW1–SW4)
 - [ ] Return deadline recorded if any check fails
@@ -290,10 +290,10 @@ Lower shaft for Q6. Decided in ADR-0013 (supersedes ADR-0003).
 **PEC11L-4115F-S0020 checks on arrival:**
 - [ ] Part number on the bag and the Bourns marking; date/lot code (datasheet p. 1: use within 6 months of delivery)
 - [ ] Shaft length and flat: 15 mm, D-flat (datasheet p. 2)
-- [ ] Pins pass the Rev A 1.2 mm drills; tabs and barbs enter the 1.5 × 2.8 mm slots (test-fit, unsoldered)
+- [x] Pins pass the Rev A 1.2 mm drills; tabs and barbs enter the 1.5 × 2.8 mm slots (test-fit, unsoldered): entered without forcing (owner, 2026-11-19; Q16)
 - [ ] Shaft top above the PCB when seated (model: 19.6 mm) → `mechanical.md`
-- [ ] Rotation in QMK: one step per detent, direction, no skipped or doubled steps (contact bounce up to 10 ms, p. 1)
-- [ ] Push switch on its GPIO
+- [x] Rotation in QMK: one step per detent, direction, no skipped or doubled steps (contact bounce up to 10 ms, p. 1): one turn = 20 on the OLED counter, clockwise counts up, both encoders, `resolution` 4 (owner, 2026-11-19)
+- [x] Push switch on its GPIO: ENC1 (GP8) Mute, ENC2 (GP28) Enter (owner, 2026-11-19)
 - [ ] Knob (D-shaft) seats without touching the bushing, and the push still clicks with the knob on
 
 **Other low-profile candidates, not bought (check 2026-11-13).** All have the same pin pattern: A–C–B at 2.5 mm, switch

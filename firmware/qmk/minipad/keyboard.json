@@ -11,12 +11,21 @@
     },
     "features": {
         "bootmagic": true,
+        "encoder": true,
+        "extrakey": true,
         "oled": true
+    },
+    "encoder": {
+        "rotary": [
+            {"pin_a": "GP6", "pin_b": "GP7", "resolution": 4},
+            {"pin_a": "GP26", "pin_b": "GP27", "resolution": 4}
+        ]
     },
     "matrix_pins": {
         "direct": [
             ["GP2", "GP3"],
-            ["GP4", "GP5"]
+            ["GP4", "GP5"],
+            ["GP8", "GP28"]
         ]
     },
     "layouts": {
@@ -25,7 +34,9 @@
                 {"label": "K1", "x": 0, "y": 0, "matrix": [0, 0]},
                 {"label": "K2", "x": 1, "y": 0, "matrix": [0, 1]},
                 {"label": "K3", "x": 0, "y": 1, "matrix": [1, 0]},
-                {"label": "K4", "x": 1, "y": 1, "matrix": [1, 1]}
+                {"label": "K4", "x": 1, "y": 1, "matrix": [1, 1]},
+                {"label": "ENC1 push", "x": 0, "y": 2, "matrix": [2, 0]},
+                {"label": "ENC2 push", "x": 1, "y": 2, "matrix": [2, 1]}
             ]
         }
     }

@@ -23,12 +23,12 @@ the schematic and `firmware/qmk/minipad/keyboard.json` together (CLAUDE.md, rule
 | K2 | GP3 | ☑ | ☑ | ☑ |
 | K3 | GP4 | ☑ | ☑ | ☑ |
 | K4 | GP5 | ☑ | ☑ | ☑ |
-| ENC1 A | GP6 | ☐ | ☑ | ☐ |
-| ENC1 B | GP7 | ☐ | ☑ | ☐ |
-| ENC1 push | GP8 | ☐ | ☑ | ☐ |
-| ENC2 A | GP26 | ☐ | ☑ | ☐ |
-| ENC2 B | GP27 | ☐ | ☑ | ☐ |
-| ENC2 push | GP28 | ☐ | ☑ | ☐ |
+| ENC1 A | GP6 | ☑ | ☑ | ☑ |
+| ENC1 B | GP7 | ☑ | ☑ | ☑ |
+| ENC1 push | GP8 | ☑ | ☑ | ☑ |
+| ENC2 A | GP26 | ☑ | ☑ | ☑ |
+| ENC2 B | GP27 | ☑ | ☑ | ☑ |
+| ENC2 push | GP28 | ☑ | ☑ | ☑ |
 | Onboard RGB LED | GP16 (fixed) | — | — | ☐ |
 | LED1 (under K1) | GP9 | ☑ | ☑ | ☑ |
 | LED2 (under K2) | GP10 | ☑ | ☑ | ☑ |
@@ -52,3 +52,4 @@ so every pin assigned above is an edge pin. Confirm on the received clone (`part
 | 2026-10-30 | Schematic ✔ ticked for all 16 assigned pins | Netlist exported with `kicad-cli` matches this table; ERC 0 errors. Schematic is a draft until step 04 |
 | 2026-11-11 | Breadboard ✔ GP2 (K1) and GP9 (LED1); Firmware ✔ GP2 | Reported by owner, 2026-11-11: GP2 reads a switch (ENC1 push wired as K1) in QMK, `matrix_pins.direct`; GP9 drives LED1 through 220 Ω, steady and with hardware PWM (slice 4, channel B). GP9 firmware ✔ waits for the key-LED behaviour (Q15): the current QMK backlight config drives only GP9 |
 | 2026-11-14 | Breadboard ✔ and Firmware ✔ for GP0, GP1, GP3–GP5, GP10–GP12; Firmware ✔ for GP9 | Reported by owner, 2026-11-14, **on the assembled Rev A board** (not a breadboard; counts for the Breadboard ✔ column): K1–K4 type a, b, c, d on the expected keys (2 × 2, K1 top-left); D1–D4 breathe together through own PWM code (slices 4B, 5A, 5B, 6A); OLED on I2C0 (GP0/GP1) shows text the right way up, no external pull-ups (RP2040 internal pull-ups on, set by QMK). GP9 Firmware ✔: the LED driver question in Q15 is answered by this test; the LED behaviour stays open (Q15). Encoder pins untested (PEC11L not fitted) |
+| 2026-11-19 | Breadboard ✔ and Firmware ✔ for GP6–GP8 (ENC1) and GP26–GP28 (ENC2). All 16 assigned pins now ✔ in every column | Reported by owner, 2026-11-19, on Rev A with the PEC11L-4115F-S0020 soldered: one full turn = exactly 20 on the OLED counter for both encoders; clockwise counts up on both (ENC1 volume up, ENC2 cursor right); both pushes work (ENC1 Mute, ENC2 Enter). Firmware: `keyboard.json` `encoder.rotary`, resolution 4; pushes as a third `matrix_pins.direct` row. On the board, ENC2 is the top knob and ENC1 the bottom one (owner, silkscreen) |

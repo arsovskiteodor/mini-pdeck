@@ -7,17 +7,24 @@ It's my first PCB, built as a learning project that covers the whole path from a
 board: requirements, part selection, schematic and layout in KiCad 10, ordering from a fab, hand assembly,
 bring-up and firmware. The goal was to understand each step well enough to design the next board alone.
 
-<!-- Photo of the assembled Rev A board goes here once the encoders are fitted: docs/images/ -->
+<p align="center">
+  <img src="docs/images/rev-a-running.jpg" alt="Assembled Rev A minipad, powered: the OLED shows the last action, a press counter and both encoder positions; the key LEDs light the keycap legends" width="480">
+</p>
+
+<p align="center">
+  <img src="docs/images/rev-a-top.jpg" alt="Rev A from above, unpowered: OLED module, RP2040-Zero, four keys and two encoder knobs on the green PCB" width="300">
+  <img src="docs/images/rev-a-angle.jpg" alt="Rev A at an angle, showing the low-profile keys and the height of the encoder knobs" width="300">
+</p>
 
 ## Status
-**Rev A works, except the encoders, which haven't been fitted yet.**
+**Rev A is fully assembled and every input and output works.**
 
 | | |
 |---|---|
 | Rev A ordered | 2026-11-03, PCBWay |
-| Arrived, assembled | 2026-11-13, 2026-11-14 (everything except the two encoders) |
-| Tested on the board (2026-11-14) | All 4 keys type; all 4 key LEDs breathe (hardware PWM); OLED shows a status screen |
-| Next | Fit and test the encoders, then keycaps, knobs and a case |
+| Arrived, assembled | 2026-11-13; 2026-11-14 (all but the encoders), encoders 2026-11-19 |
+| Tested on the board | 2026-11-14: all 4 keys type; all 4 key LEDs breathe (hardware PWM); OLED shows a status screen. 2026-11-19: both encoders turn and push (volume/mute, arrows/Enter), counted on the OLED |
+| Next | VIA remapping, the case, and a Rev B with the lessons from Rev A |
 
 Day-to-day state, open questions and next actions: [STATUS.md](STATUS.md).
 

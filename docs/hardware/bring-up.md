@@ -11,13 +11,13 @@ Physical results are always recorded as "reported by owner", with the date, in t
 
 | Test | Expected | Result | Date |
 |---|---|---|---|
-| Board shows up as `RPI-RP2` | Drive appears | | |
-| QMK firmware enumerates | Keyboard device appears | | |
-| OLED | Text visible | | |
-| Key on each of K1–K4's pins | Correct keycode | | |
-| ENC1 clockwise / counter-clockwise | Volume up / down, 1 step per detent | | |
-| ENC1 push | Mute | | |
-| ENC2 clockwise / counter-clockwise / push | As mapped | | |
+| Board shows up as `RPI-RP2` | Drive appears | ✔ (owner) | 2026-11-11 |
+| QMK firmware enumerates | Keyboard device appears | ✔ (owner) | 2026-11-11 |
+| OLED | Text visible | ✔ on Rev A (owner) | 2026-11-14 |
+| Key on each of K1–K4's pins | Correct keycode | ✔ on Rev A: a, b, c, d (owner) | 2026-11-14 |
+| ENC1 clockwise / counter-clockwise | Volume up / down, 1 step per detent | ✔ on Rev A: 20 per turn, CW = up (owner) | 2026-11-19 |
+| ENC1 push | Mute | ✔ on Rev A (owner) | 2026-11-19 |
+| ENC2 clockwise / counter-clockwise / push | As mapped | ✔ on Rev A: → / ←, 20 per turn; push = Enter (owner) | 2026-11-19 |
 
 ## B. Bare PCB checks (before soldering anything)
 1. Visual check: no bridges or missing copper; drill holes present.
@@ -38,10 +38,10 @@ depends on it.
 ## D. Final acceptance
 | Input | Expected | Result | Date |
 |---|---|---|---|
-| K1–K4 | Mapped keycodes | | |
-| ENC1 / ENC2 rotate | One step per detent, correct direction | | |
-| ENC1 / ENC2 push | Mapped action | | |
-| OLED | Shows layer/status | | |
+| K1–K4 | Mapped keycodes | ✔ a, b, c, d (owner) | 2026-11-14 |
+| ENC1 / ENC2 rotate | One step per detent, correct direction | ✔ 20 per turn, CW = up, both (owner) | 2026-11-19 |
+| ENC1 / ENC2 push | Mapped action | ✔ Mute / Enter (owner) | 2026-11-19 |
+| OLED | Shows layer/status | ✔ status screen: last action, presses, encoder counts (owner) | 2026-11-19 |
 | Bootmagic (if configured) | Enters bootloader | | |
 | VIA (optional for v1) | Remap a key live; it survives unplugging | | |
 

@@ -5,14 +5,38 @@
 #include <hal.h>
 
 // ============================================================================
-// Keys: K1-K4 type a, b, c, d. Order follows the "layout" list in keyboard.json.
+// Keys: K1-K4 type a, b, c, d; ENC1 push = mute, ENC2 push = Enter.
+// Order follows the "layout" list in keyboard.json.
 // ============================================================================
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
-        KC_A, KC_B,
-        KC_C, KC_D
+        KC_A,    KC_B,
+        KC_C,    KC_D,
+        KC_MUTE, KC_ENT // ENC1 push, ENC2 push
     )
 };
+
+// ============================================================================
+// Encoders: ENC1 = volume, ENC2 = left/right arrow (one cursor step per detent,
+// easy to count in a text editor). QMK calls this once per detent (resolution 4
+// in keyboard.json). If a direction is reversed, swap pin_a and pin_b there.
+// ============================================================================
+static int16_t enc_pos[2] = {0, 0}; // detents counted since power-up, CW = +1
+
+static const char *last_action = "-";
+
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index > 1) return false;
+    enc_pos[index] += clockwise ? 1 : -1;
+    if (index == 0) {
+        tap_code(clockwise ? KC_VOLU : KC_VOLD);
+        last_action = clockwise ? "Vol +" : "Vol -";
+    } else {
+        tap_code(clockwise ? KC_RGHT : KC_LEFT);
+        last_action = clockwise ? "Right" : "Left";
+    }
+    return false; // false = we handled it; skip QMK's default (volume on every encoder)
+}
 
 // ============================================================================
 // Key LEDs D1-D4: all four breathe together.
@@ -81,27 +105,38 @@ static void key_leds_set(uint32_t level) {
 }
 
 // ============================================================================
-// OLED: title, last key pressed and a press counter.
+// OLED: title, last action, press counter and both encoder positions.
 // ============================================================================
-static char     last_key = '-';
-static uint16_t presses  = 0;
+static uint16_t presses = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed && keycode >= KC_A && keycode <= KC_Z) {
-        last_key = 'A' + (keycode - KC_A);
+    if (record->event.pressed) {
+        static const char *const letters[] = {"A", "B", "C", "D"};
+        if (keycode >= KC_A && keycode <= KC_D) last_action = letters[keycode - KC_A];
+        else if (keycode == KC_MUTE)            last_action = "Mute";
+        else if (keycode == KC_ENT)             last_action = "Enter";
         presses++;
     }
     return true; // true = let QMK send the key to the computer as usual
 }
 
+// Writes e.g. "ENC1:  -12": sign first, because get_u16_str only does unsigned numbers.
+static void oled_write_enc(const char *name, int16_t pos) {
+    oled_write(name, false);
+    oled_write_char(pos < 0 ? '-' : ' ', false);
+    oled_write_ln(get_u16_str(pos < 0 ? -pos : pos, ' '), false);
+}
+
 bool oled_task_user(void) {
     oled_write_ln_P(PSTR("minipad Rev A"), false);
     oled_write_ln_P(PSTR("-------------"), false);
-    oled_write_P(PSTR("Last key: "), false);
-    oled_write_char(last_key, false);
+    oled_write_P(PSTR("Last: "), false);
+    oled_write(last_action, false);
     oled_advance_page(true); // rest of the line cleared, move to the next one
     oled_write_P(PSTR("Presses: "), false);
     oled_write_ln(get_u16_str(presses, ' '), false);
+    oled_write_enc("ENC1:", enc_pos[0]);
+    oled_write_enc("ENC2:", enc_pos[1]);
     return false;
 }
 
